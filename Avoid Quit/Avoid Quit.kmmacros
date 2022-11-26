@@ -15,6 +15,48 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
+						<key>ActionUID</key>
+						<integer>60619</integer>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4HAgAAKwAAAAEA
+						AAD/AQAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA2
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjIgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmlufQEAAAAjAAAA
+						AQAAAAcAAABUWFQucnRmEAAAANwe
+						e2O2AQAAAAAAAAAAAAA=
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
+					<dict>
 						<key>Action</key>
 						<string>Quit</string>
 						<key>ActionUID</key>
@@ -41,7 +83,7 @@
 				<key>IsActive</key>
 				<false/>
 				<key>ModificationDate</key>
-				<real>689784916.03675401</real>
+				<real>690706202.41418695</real>
 				<key>Name</key>
 				<string>Avoid Quit plan_c</string>
 				<key>Triggers</key>
@@ -97,6 +139,48 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
+						<key>ActionUID</key>
+						<integer>60618</integer>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4HAgAAKwAAAAEA
+						AAD/AQAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA2
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjIgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmlufQEAAAAjAAAA
+						AQAAAAcAAABUWFQucnRmEAAAANwe
+						e2O2AQAAAAAAAAAAAAA=
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
+					<dict>
 						<key>Action</key>
 						<string>Quit</string>
 						<key>ActionUID</key>
@@ -123,7 +207,7 @@
 				<key>IsActive</key>
 				<false/>
 				<key>ModificationDate</key>
-				<real>689784295.38150203</real>
+				<real>690706197.61359</real>
 				<key>Name</key>
 				<string>Avoid Quit plan_b</string>
 				<key>Triggers</key>
@@ -180,6 +264,48 @@
 			<dict>
 				<key>Actions</key>
 				<array>
+					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
+						<key>ActionUID</key>
+						<integer>60617</integer>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4HAgAAKwAAAAEA
+						AAD/AQAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA2
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjIgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmlufQEAAAAjAAAA
+						AQAAAAcAAABUWFQucnRmEAAAANwe
+						e2O2AQAAAAAAAAAAAAA=
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
 					<dict>
 						<key>ActionUID</key>
 						<integer>57576</integer>
@@ -270,7 +396,7 @@
 				<key>CustomIconData</key>
 				<string>KMEP-QuitBadge</string>
 				<key>ModificationDate</key>
-				<real>689773507.85370505</real>
+				<real>690706189.54275501</real>
 				<key>Name</key>
 				<string>Avoid Quit</string>
 				<key>Triggers</key>

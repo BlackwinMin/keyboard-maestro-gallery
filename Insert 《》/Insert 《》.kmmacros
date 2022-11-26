@@ -403,6 +403,48 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
+						<key>ActionUID</key>
+						<integer>60616</integer>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4HAgAAKwAAAAEA
+						AAD/AQAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA2
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjIgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmlufQEAAAAjAAAA
+						AQAAAAcAAABUWFQucnRmEAAAANwe
+						e2O2AQAAAAAAAAAAAAA=
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
+					<dict>
 						<key>ActionUID</key>
 						<integer>59853</integer>
 						<key>MacroActionType</key>
@@ -532,7 +574,7 @@
 				<key>IsActive</key>
 				<false/>
 				<key>ModificationDate</key>
-				<real>690090278.26282406</real>
+				<real>690706138.59207594</real>
 				<key>Name</key>
 				<string>Insert 《》</string>
 				<key>Triggers</key>

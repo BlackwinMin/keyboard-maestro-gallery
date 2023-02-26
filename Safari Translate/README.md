@@ -16,4 +16,10 @@
 - [《UNTAG Premium 第九期》](https://utgd.net/article/9628)：适配了部分论坛页面。
 - [《UNTAG Premium 年度特辑 01》](https://utgd.net/article/9760)：全文翻译 DEVONthink 中的 RSS 文章（前提是你订阅的 RSS 源了你全文）。
 
+为方便没有 Keyboard Maestro 的读者，下面也提供 Bookmarklet 版本源代码。Bookmarklet 仅负责“对照”，不负责“翻译”，“翻译”需要使用各个浏览器自带的翻译功能，或者使用翻译插件。我仅测试了 Safari、Chrome、Firefox 和 Edge 的自带翻译功能（20230226），没有精力一一测试其他软件，插件更是一个都没有测过，有需要的请自行测试。
+
+```
+javascript:var%20%24jscomp%3D%24jscomp%7C%7C%7B%7D%3B%24jscomp.scope%3D%7B%7D%3B%24jscomp.arrayIteratorImpl%3Dfunction(a)%7Bvar%20d%3D0%3Breturn%20function()%7Breturn%20d%3Ca.length%3F%7Bdone%3A!1%2Cvalue%3Aa%5Bd%2B%2B%5D%7D%3A%7Bdone%3A!0%7D%7D%7D%3B%24jscomp.arrayIterator%3Dfunction(a)%7Breturn%7Bnext%3A%24jscomp.arrayIteratorImpl(a)%7D%7D%3B%24jscomp.makeIterator%3Dfunction(a)%7Bvar%20d%3D%22undefined%22!%3Dtypeof%20Symbol%26%26Symbol.iterator%26%26a%5BSymbol.iterator%5D%3Breturn%20d%3Fd.call(a)%3A%24jscomp.arrayIterator(a)%7D%3B(function()%7Bfunction%20a(b)%7B%22img%22%3D%3D%3Db.nodeName.toLowerCase()%26%26b.parentElement.removeChild(b)%3Bb.setAttribute(%22translate%22%2C%22no%22)%3Bb.setAttribute(%22class%22%2Cb.getAttribute(%22class%22)%2B%22%20notranslate%22)%3Bb%3D%24jscomp.makeIterator(b.children)%3Bfor(var%20e%3Db.next()%3B!e.done%3Be%3Db.next())a(e.value)%7Dfor(var%20d%3D%24jscomp.makeIterator(document.querySelectorAll(%22li%3Anot(%3Ahas(p))%2C%20div%3Anot(%3Ahas(div%2C%20p))%2C%20p%2C%20h1%2C%20h2%2C%20h3%2C%20h4%22))%2Cc%3Dd.next()%3B!c.done%3Bc%3Dd.next())if(c%3Dc.value%2C%22no%22!%3D%3Dc.getAttribute(%22translate%22))%7Bvar%20f%3Dc.cloneNode(!0)%3Bc.parentElement.insertBefore(f%2Cc.nextElementSibling)%3Ba(c)%7D%7D)()%3Bvoid+0
+```
+
 ![title](img.png)

@@ -4,4 +4,4 @@
 
 原文：《Rime 词典管理及其自动化》（预计2023年4月底发布）。
 
-![title](img.gif)
+![title](img.png)

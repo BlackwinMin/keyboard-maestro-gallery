@@ -23,3 +23,5 @@ javascript:var%20%24jscomp%3D%24jscomp%7C%7C%7B%7D%3B%24jscomp.scope%3D%7B%7D%3B
 ```
 
 ![title](img.png)
+
+如您对左右分屏翻译感兴趣，可以查看我的另一个项目 [Safari Translate V](https://github.com/BlackwinMin/Keyboard-Maestro-gallery/tree/master/Safari%20Translate%20V)——其实不限于 Safari，基本任何浏览器都可以。

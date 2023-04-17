@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>672396739.60492897</real>
+		<key>CustomIconData</key>
+		<string>KMEP-GenericApplication-/Applications/Microsoft Word.app</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12525866</integer>
+						<key>DisplayKind</key>
+						<string>Briefly</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>--Credit: https://medium.com/@JannerChang/applescript%E5%AE%9E%E7%8E%B0word%E6%96%87%E6%9C%AC%E6%9B%BF%E6%8D%A2%E5%92%8C%E5%B0%86omnifocus%E7%9A%84task%E5%8F%91%E5%B8%83%E5%88%B0%E6%97%A5%E5%8E%86%CD%B8%8A-ac76972340edset i to 0set vList to {}set ccc to the clipboardset urlContents to (paragraphs of ccc)repeat with nextLine in urlContents	if length of nextLine is greater than 0 then		set the end of vList to (nextLine as text)	end ifend repeattell application "Microsoft Word"	set findRange to find object of selection	repeat with k in {"k01", "k02", "k03", "k04", "k05", "k06", "k07", "k08", "k09", "k10", "k11", "k12", "k13", "k14", "k15", "k16", "k17"}		set i to i + 1		set v to item i of vList		tell findRange			execute find find text k replace with v replace replace all		end tell	end repeatend tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>699503547.11943603</real>
+				<key>CustomIconData</key>
+				<string>KMEP-GenericApplication-/Applications/Microsoft Word.app</string>
+				<key>ModificationDate</key>
+				<real>699513222.05517197</real>
+				<key>Name</key>
+				<string>Fill 卷宗归档</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>35</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>6400</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>298C9DCD-715D-4B34-BC1E-4280F0B1713C</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Microsoft Word</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.microsoft.Word</string>
+					<key>Name</key>
+					<string>Microsoft Word</string>
+					<key>NewFile</key>
+					<string>/Applications/Microsoft Word.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>BA40C963-2401-4021-8B01-9116369E6EC9</string>
+		<key>UID</key>
+		<string>B3F2A12E-BC15-4CDC-B9E4-8D7E3E006EBB</string>
+	</dict>
+</array>
+</plist>

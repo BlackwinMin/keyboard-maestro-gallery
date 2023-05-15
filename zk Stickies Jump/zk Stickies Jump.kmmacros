@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>702640494.94952595</real>
+		<key>CustomIconData</key>
+		<string>KMEP-GenericApplication-/System/Applications/Stickies.app</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12528903</integer>
+						<key>MacroActionType</key>
+						<string>SetVariableToText</string>
+						<key>Text</key>
+						<string>%SystemClipboard%</string>
+						<key>Variable</key>
+						<string>kmTemp</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12528904</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>tell application "System Events" to tell application process "Stickies"	set nameList to name of every windowend tellset the_string to ""repeat with this_line in nameList	set the_string to the_string &amp; this_line &amp; returnend repeatset the_string to items 1 thru -2 of the_string as stringtell application "Keyboard Maestro Engine"	setvariable "nvNotes" to the_string as textend tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12528905</integer>
+						<key>Destination</key>
+						<string>Variable</string>
+						<key>DestinationVariable</key>
+						<string>t</string>
+						<key>MacroActionType</key>
+						<string>PromptWithList</string>
+						<key>PromptUID</key>
+						<string>941352F4-2536-4883-86A2-82D557F0CCC8</string>
+						<key>Source</key>
+						<string>Variable</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>Variable</key>
+						<string>nvNotes</string>
+						<key>WindowTitle</key>
+						<string>Choose a note to create link</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12528916</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>tell application "Keyboard Maestro Engine"
+	set kmVar to getvariable "t"
+end tell
+
+tell application "Stickies"	activateend telltell application "System Events" to tell application process "Stickies"	click (first menu item whose name contains kmVar) of menu "Window" of menu bar 1end tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12528913</integer>
+						<key>JustDisplay</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>SetClipboardToText</string>
+						<key>Text</key>
+						<string>%Variable%kmTemp%</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12528914</integer>
+						<key>DeviceID</key>
+						<string>SOUNDEFFECTS</string>
+						<key>MacroActionType</key>
+						<string>PlaySound</string>
+						<key>Path</key>
+						<string>/System/Library/Sounds/Purr.aiff</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>663329918.81674397</real>
+				<key>CustomIconData</key>
+				<string>KMEP-GenericApplication-/System/Applications/Stickies.app</string>
+				<key>ModificationDate</key>
+				<real>705832763.78405702</real>
+				<key>Name</key>
+				<string>Jump to</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>38</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>DC17F1C0-FE3D-40AE-92DB-48B9083EF180</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Stickies</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.Stickies</string>
+					<key>Name</key>
+					<string>Stickies</string>
+					<key>NewFile</key>
+					<string>/System/Applications/Stickies.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>96A0F536-BB29-49F4-A195-05FB8846C334</string>
+		<key>UID</key>
+		<string>316E7A59-85C7-4640-985A-2F9796989C94</string>
+	</dict>
+</array>
+</plist>

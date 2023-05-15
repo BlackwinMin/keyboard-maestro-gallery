@@ -4,6 +4,6 @@
 
 本版本仅在 iA Writer 中测试，修改菜单栏部分后可以用于多数开放文件的 Markdown 编辑器。
 
-原文：[UNTAG 会员栏目](https://utgd.net/)（发布时间未定）。
+原文：[UNTAG 会员栏目](https://utgd.net/article/20157)。
 
 ![title](img.jpg)

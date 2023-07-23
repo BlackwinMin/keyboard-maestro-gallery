@@ -19,14 +19,16 @@
 						<string>Yellow</string>
 						<key>ActionUID</key>
 						<integer>12515576</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>Comment</string>
 						<key>StyledText</key>
 						<data>
 						cnRmZAAAAAADAAAAAgAAAAcAAABU
-						WFQucnRmAQAAAC4HAgAAKwAAAAEA
-						AAD/AQAAe1xydGYxXGFuc2lcYW5z
-						aWNwZzEyNTJcY29jb2FydGYyNzA3
+						WFQucnRmAQAAAC4vAgAAKwAAAAEA
+						AAAnAgAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA4
 						Clxjb2NvYXRleHRzY2FsaW5nMFxj
 						b2NvYXBsYXRmb3JtMHtcZm9udHRi
 						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
@@ -44,14 +46,16 @@
 						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
 						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
 						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
-						MjMgTWluamEgQWxsIHJpZ2h0cyBy
+						MjIgTWluamEgQWxsIHJpZ2h0cyBy
 						ZXNlcnZlZFwKTElDRU5TRTogR05V
 						IEdQTHYzXApBcnRpY2xlczogaHR0
 						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
 						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
-						b20vbWluamFfcmlufQEAAAAjAAAA
-						AQAAAAcAAABUWFQucnRmEAAAAE34
-						xWO2AQAAAAAAAAAAAAA=
+						b20vbWluamFfcmluXApHaXRIdWI6
+						IGh0dHBzOi8vZ2l0aHViLmNvbS9C
+						bGFja3dpbk1pbn0BAAAAIwAAAAEA
+						AAAHAAAAVFhULnJ0ZhAAAADhzGVk
+						tgEAAAAAAAAAAAAA
 						</data>
 						<key>Title</key>
 						<string>Copyright statement and contact information</string>
@@ -153,24 +157,20 @@ elementHtml</string>
 						<string>DisplayBriefly</string>
 						<key>ActionUID</key>
 						<integer>67840</integer>
-						<key>IsDisclosed</key>
-						<false/>
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>https://rsshub.app/youtube/channel/%Variable%t%</string>
+						<string>https://www.youtube.com/feeds/videos.xml?channel_id=%Variable%t%</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
 						<integer>67842</integer>
-						<key>IsDisclosed</key>
-						<false/>
 						<key>JustDisplay</key>
 						<false/>
 						<key>MacroActionType</key>
 						<string>SetClipboardToText</string>
 						<key>Text</key>
-						<string>https://rsshub.app/youtube/channel/%Variable%t%</string>
+						<string>https://www.youtube.com/feeds/videos.xml?channel_id=%Variable%t%</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
@@ -509,7 +509,7 @@ elementHtml</string>
 				3AAAwGw=
 				</data>
 				<key>ModificationDate</key>
-				<real>695611340.09571397</real>
+				<real>711816834.46451902</real>
 				<key>Name</key>
 				<string>js YouTube RSS</string>
 				<key>Triggers</key>

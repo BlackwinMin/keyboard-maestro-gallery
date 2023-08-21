@@ -2,7 +2,7 @@
 
 将网页分为左右两侧，分别显示原文和译文。比[对照翻译](https://github.com/BlackwinMin/Keyboard-Maestro-gallery/tree/master/Safari%20Translate)更鲁棒，适合阅读排版比较复杂的网页，比如带不可折叠式侧边栏的页面。
 
-出处：[《一种长寿可靠的网页中英分屏翻译方案》](https://utgd.net)（预计2023年第一季度末发布）。
+出处：[《一种长寿可靠的网页中英分屏翻译方案》](https://utgd.net/article/20131/)。
 
 为方便没有 Keyboard Maestro 的读者，下面也提供 Bookmarklet 版本源代码。Bookmarklet 仅负责“左右分屏”，不负责“翻译”，“翻译”需要使用各个浏览器自带的翻译功能，或者使用翻译插件。我仅测试了 Safari、Chrome、Firefox 和 Edge 的自带翻译功能（20230327），没有精力一一测试其他软件，插件更是一个都没有测过，有需要的请自行测试。
 

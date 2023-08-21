@@ -4,6 +4,6 @@
 
 用 Keyboard Maestro 将复杂操作编码为一段 URL Scheme，点击即可在几乎任何软件中实现“双向链接”。
 
-出处：[《用 Keyboard Maestro 将几乎任何软件纳入双向链接网络》](https://utgd.net)（预计2023年4月下旬发布）
+出处：[《用 Keyboard Maestro 将几乎任何软件纳入双向链接网络》](https://utgd.net/article/20129/)。
 
 ![title](img.png)

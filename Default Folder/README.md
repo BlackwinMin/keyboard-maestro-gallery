@@ -1,4 +1,4 @@
-# Launch LaunchBar Items
+# Default Folder 为不同软件设置默认文件保存位置
 
 为目标软件设置默认的文件保存位置，当您按下 `⌘Command-S` 保存文件时，Keyboard Maestro 会取代系统自带的文件保存窗口，代之以文件名输入框，确认后即可直接存之预设位置。
 
@@ -11,6 +11,6 @@
 3. 将同一步骤中的 `"Sketch"` 改为目标软件；如果您修改了示例动作的名称，请将 AppleScript 脚本中的 `Default Folder` 作相应修改。
 4. 在末尾两处“Select ‘Save’ in the Menu ‘File’ in Sketch”步骤中，重新确定目标软件保存文件的菜单栏项目（注意中英文，即便您目前处理的也是 Sketch，我的预设也仅适用于英文界面，中文版需重新设置）。
 
-原文：[《自制“Default Folder X”：用 Keyboard Maestro 为不同软件设置默认文件保存位置》](https://utgd.net/article)（发布时间未定）。
+原文：《文件自动化（三）：为不同软件设置默认文件保存位置》（发布时间未定），出自付费栏目《Keyboard Maestro 进阶指引》，栏目即将在 [UNTAG](https://utgd.net) 上架。
 
 ![title](img.gif)

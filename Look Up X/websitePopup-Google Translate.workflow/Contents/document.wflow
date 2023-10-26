@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>492</string>
+	<string>521.1</string>
 	<key>AMApplicationVersion</key>
 	<string>2.10</string>
 	<key>AMDocumentVersion</key>
@@ -59,18 +59,14 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>keyWord=`pbpaste`
+					<string>if test -z "$@"; then
+	var=$(pbpaste)
+	encodedKeyword=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$var'))")
+else
+	encodedKeyword=$(python3 -c "import urllib.parse; print(urllib.parse.quote('$@'))")
+fi
 
-urlquote()
-{
-[[ $# = 0 ]]&amp;&amp;echo urlquote string&amp;&amp;return
-echo "#coding=utf-8;
-import urllib,sys;print urllib.quote('$1');" |python
-}
-
-keyWord=`urlquote "$keyWord"`
-
-echo "https://translate.google.cn/#en/zh-CN/$keyWord"</string>
+echo "https://translate.google.hk/#en/zh-CN/$encodedKeyword"</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -94,8 +90,6 @@ echo "https://translate.google.cn/#en/zh-CN/$keyWord"</string>
 				</array>
 				<key>Class Name</key>
 				<string>RunShellScriptAction</string>
-				<key>IgnoresInput</key>
-				<true/>
 				<key>InputUUID</key>
 				<string>69F557A6-D62A-4045-B958-F1E4EC1577DF</string>
 				<key>Keywords</key>
@@ -185,7 +179,7 @@ echo "https://translate.google.cn/#en/zh-CN/$keyWord"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>319.500000:305.000000</string>
+				<string>359.500000:566.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -365,7 +359,7 @@ echo "https://translate.google.cn/#en/zh-CN/$keyWord"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>319.500000:452.000000</string>
+				<string>359.500000:713.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Website Popup.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -375,7 +369,7 @@ echo "https://translate.google.cn/#en/zh-CN/$keyWord"</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>90F5E1B1-8EC1-42F1-B296-7C917DFEE87F</key>
+		<key>404BCC83-8348-4010-9103-B5E80BEF0464</key>
 		<dict>
 			<key>from</key>
 			<string>4D26E28A-8C3D-4BB8-A4DD-3BCFC99AEE88 - 4D26E28A-8C3D-4BB8-A4DD-3BCFC99AEE88</string>
@@ -390,23 +384,23 @@ echo "https://translate.google.cn/#en/zh-CN/$keyWord"</string>
 		<key>applicationPaths</key>
 		<array/>
 		<key>inputTypeIdentifier</key>
-		<string>com.apple.Automator.nothing</string>
+		<string>com.apple.Automator.text</string>
 		<key>outputTypeIdentifier</key>
 		<string>com.apple.Automator.nothing</string>
 		<key>presentationMode</key>
 		<integer>11</integer>
 		<key>processesInput</key>
-		<integer>0</integer>
+		<false/>
 		<key>serviceInputTypeIdentifier</key>
-		<string>com.apple.Automator.nothing</string>
+		<string>com.apple.Automator.text</string>
 		<key>serviceOutputTypeIdentifier</key>
 		<string>com.apple.Automator.nothing</string>
 		<key>serviceProcessesInput</key>
-		<integer>0</integer>
+		<false/>
 		<key>systemImageName</key>
 		<string>NSActionTemplate</string>
 		<key>useAutomaticInputType</key>
-		<integer>0</integer>
+		<false/>
 		<key>workflowTypeIdentifier</key>
 		<string>com.apple.Automator.servicesMenu</string>
 	</dict>

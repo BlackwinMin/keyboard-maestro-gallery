@@ -15,24 +15,70 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
 						<key>ActionUID</key>
-						<integer>54494</integer>
+						<integer>61013</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4vAgAAKwAAAAEA
+						AAAnAgAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA4
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjIgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmluXApHaXRIdWI6
+						IGh0dHBzOi8vZ2l0aHViLmNvbS9C
+						bGFja3dpbk1pbn0BAAAAIwAAAAEA
+						AAAHAAAAVFhULnJ0ZhAAAADhzGVk
+						tgEAAAAAAAAAAAAA
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>26536</integer>
 						<key>DisplayKind</key>
 						<string>None</string>
 						<key>HonourFailureSettings</key>
 						<true/>
 						<key>IncludeStdErr</key>
 						<false/>
-						<key>IsActive</key>
-						<false/>
-						<key>IsDisclosed</key>
-						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
 						<key>MacroActionType</key>
 						<string>ExecuteAppleScript</string>
 						<key>Path</key>
 						<string></string>
 						<key>Text</key>
-						<string>set {r, g, b} to choose color default color {61937, 48573, 23387}set {r, g, b} to {_16_to_8(r), _16_to_8(g), _16_to_8(b)}--set the clipboard to (r &amp; ", " &amp; g &amp; ", " &amp; b) as texton _16_to_8(n)	return ((n / 65535) * 255) as integerend _16_to_8tell application "Keyboard Maestro Engine"	setvariable "color" to (r &amp; ", " &amp; g &amp; ", " &amp; b) as textend tell</string>
+						<string>set {r, g, b} to choose color default color {61937, 48573, 23387}set {r, g, b} to {_16_to_8(r), _16_to_8(g), _16_to_8(b)}--set the clipboard to (r &amp; ", " &amp; g &amp; ", " &amp; b) as texton _16_to_8(n)	return ((n / 65535) * 255) as integerend _16_to_8set kmInst to system attribute "KMINSTANCE"tell application "Keyboard Maestro Engine"	setvariable "localColor" instance kmInst to (r &amp; ", " &amp; g &amp; ", " &amp; b) as textend tell</string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
 						<key>TrimResults</key>
@@ -43,8 +89,309 @@
 						<true/>
 					</dict>
 					<dict>
+						<key>ActionColor</key>
+						<string>Teal</string>
 						<key>ActionUID</key>
-						<integer>54496</integer>
+						<integer>26537</integer>
+						<key>MacroActionType</key>
+						<string>SetVariableToText</string>
+						<key>Text</key>
+						<string>&lt;style&gt;
+    body {
+        font-size: 15px;
+        color:#333;
+        background:#fff;
+        font-family: "Old Newspapers Sung", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif", Helvetica, Arial;
+        margin: 0;
+        padding: 5%;
+	--themeColor: %Variable%localColor%;
+    }
+    
+    table {
+        width: 100%;
+        max-width: 65em;
+        border: 1px solid rgba(var(--themeColor), .5);
+        margin: 15px auto;
+        border-collapse: collapse;
+        empty-cells:
+    }
+    table th,
+    table td {
+        height: 35px;
+        border: 0px solid rgba(var(--themeColor), .5);
+        padding: 0 10px;
+    }
+    
+    table th {
+        font-weight: bold;
+        text-align: center !important;
+        background: rgba(var(--themeColor), .2);
+    }
+    
+    table tbody tr:nth-child(2n) {
+        background: rgba(var(--themeColor), .2);
+    }
+    
+    table tr:hover {
+        background: rgba(var(--themeColor), .1);
+    }
+    
+    table th {
+        white-space: nowrap; /*表头内容强制在一行显示*/
+    }
+    
+    table td:nth-child(1) {
+        white-space: nowrap; 
+    }
+    
+    h1 {
+        font-size: 1.6em;
+    }
+    
+    /*			h2, h3, h4, h5, h6 {*/
+    /*				line-height: 1.5em;*/
+    /*				margin-top: 2.2em;*/
+    /*				margin-bottom: 4px;*/
+    /*			}*/
+    
+    h2 {
+        font-size: 1.4em;
+        padding-left: 9px;
+        border-left: 6px solid rgb(var(--themeColor));
+        line-height: 1.4;
+    }
+    
+    h3 {
+        font-weight: 700;
+        font-size: 1.2em;
+        line-height: 1.4;
+        margin: 10px 0 5px;
+        padding-top: 10px;
+    }
+    
+    h4 {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.1em;
+        line-height: 1.4;
+        margin: 10px 0 5px;
+        padding-top: 10px
+    }
+    
+    h5, h6 {
+        font-size: .9em;
+    }
+    
+    h5 {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    h6 {
+        font-weight: normal;
+        color: #AAA;
+    }
+    
+    dl,ol,ul {
+        margin-top: 12px;
+        margin-bottom: 20px;
+        padding-left: 5%;
+        line-height: 1.8;
+        
+    }
+    
+    a {
+        color: rgb(var(--themeColor));
+        border-bottom: 2px dotted;
+        text-decoration: none;
+        transition-property: background;
+        transition-duration: 0.2s;
+    }
+    
+    p a:hover {
+        /*	text-decoration: underline;*/
+    }
+    
+    p a:before {
+        margin-left: 1px;
+    }
+    
+    p {
+        margin: 0 0 20px;
+        padding: 0;
+        line-height: 1.8;
+        /*		text-indent : 2em;*/
+    }
+    
+    a:focus {
+        outline-offset: -2px;
+    }
+    
+    blockquote {
+        color: #aaa;
+/*      background-color: rgba(var(--themeColor), .1);*/
+        margin: 5px;
+        padding-left: 10px;
+        border-left: 2px solid rgb(var(--themeColor));
+    }
+    
+    strong, dfn {
+        font-weight: 700;
+    }
+    
+    em, dfn {
+        font-style: italic;
+        font-weight: 400;
+    }
+    
+    del {
+        text-decoration: line-through;
+    }
+    
+    figure {margin: 1em 0;}
+    figcaption {font-size: 0.75em;padding:0.5em 2em;margin-bottom: 2em;}
+    figure img {margin-bottom: 0px;}
+    
+    img {
+        /* By default, images are centered on their own line. */
+        margin: 0.5em auto;
+        display: block;
+        height: auto;
+        max-width: 600px !important;
+	max-heigth: 600px !important;
+        margin-inline-start: 0px !important;
+    }
+
+    img.sameline { vertical-align: middle; }
+    
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #eee;
+    }
+    
+    pre {
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857;
+        word-break: break-all;
+        word-wrap: break-word;
+        border-radius: 4px;
+        white-space: pre-wrap;
+        display: block;
+        background: rgba(var(--themeColor), .3);
+        padding: 10px 20px;
+        border: none;
+        margin-bottom: 25px;
+        color: rgb(var(--themeColor));
+        font-family: Courier, sans-serif;
+    }
+    
+    p &gt; code {
+        color: rgb(var(--themeColor));
+        font-size: 13px;
+        background-color: rgba(var(--themeColor), .3);
+        margin-left: 0.25em;
+        margin-right: 0.25em;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+    }
+    
+    li &gt; code {
+        color: rgb(var(--themeColor));
+        font-size: 13px;
+        background-color: rgba(var(--themeColor), .3);
+        margin-left: 0.25em;
+        margin-right: 0.25em;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+    }
+    
+    ol p, ul p {margin-bottom: 0px;}
+    li {margin-bottom: 0.25em;margin-top: 0.25em;}
+    
+    ol#footnotes {
+        font-size: 0.95em;
+        padding-top: 1em;
+        margin-top: 1em;
+        margin-left: 0;
+        border-top: 1px solid #eaeaea;
+        counter-reset: footer-counter;
+        list-style: none;
+        color: #555;
+        padding-left: 5%;
+        margin: 20px 0;
+    }
+    
+    ol#footnotes li {
+        margin-bottom: 10px;
+        margin-left: 16px;
+        font-weight: 400;
+        line-height: 2;
+        list-style-type: none;
+    }
+    
+    ol#footnotes li:before {
+        content: counter(footer-counter) ". ";
+        counter-increment: footer-counter;
+        font-weight: 800;
+        font-size: .95em;
+    }
+    
+    @keyframes highfade {
+        0% {
+            background-color: none;
+        }
+        20% {
+            background-color: yellow;
+        }
+        100% {
+            background-color: none;
+        }
+    }
+    
+    @-webkit-keyframes highfade {
+        0% {
+            background-color: none;
+        }
+        20% {
+            background-color: yellow;
+        }
+        100% {
+            background-color: none;
+        }
+    }
+    
+    a:target, ol#footnotes li:target, sup a:target  {
+        animation-name: highfade;
+        animation-duration: 2s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+        -webkit-animation-name: highfade;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease-in-out;
+    }
+    
+    a:target {border:0;outline: 0;}animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    }
+    
+    a:target {border:0;outline: 0;}tion-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+    }
+    
+    a:target {border:0;outline: 0;}
+&lt;/style&gt;</string>
+						<key>Variable</key>
+						<string>t</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>26538</integer>
 						<key>Conditions</key>
 						<dict>
 							<key>ConditionList</key>
@@ -77,7 +424,7 @@
 						<array>
 							<dict>
 								<key>ActionUID</key>
-								<integer>54497</integer>
+								<integer>26539</integer>
 								<key>MacroActionType</key>
 								<string>SelectMenuItem</string>
 								<key>Menu</key>
@@ -103,7 +450,7 @@
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>54498</integer>
+						<integer>26540</integer>
 						<key>Conditions</key>
 						<dict>
 							<key>ConditionList</key>
@@ -136,7 +483,7 @@
 						<array>
 							<dict>
 								<key>ActionUID</key>
-								<integer>54499</integer>
+								<integer>26541</integer>
 								<key>IsActive</key>
 								<false/>
 								<key>MacroActionType</key>
@@ -160,7 +507,7 @@
 							</dict>
 							<dict>
 								<key>ActionUID</key>
-								<integer>54500</integer>
+								<integer>26542</integer>
 								<key>KeyCode</key>
 								<integer>8</integer>
 								<key>MacroActionType</key>
@@ -180,7 +527,7 @@
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>54501</integer>
+						<integer>26543</integer>
 						<key>IsDisclosed</key>
 						<false/>
 						<key>MacroActionType</key>
@@ -194,17 +541,16 @@
 						<key>Action</key>
 						<string>ByPasting</string>
 						<key>ActionUID</key>
-						<integer>54502</integer>
+						<integer>26555</integer>
 						<key>MacroActionType</key>
 						<string>InsertText</string>
 						<key>Text</key>
-						<string>//var elementHtml = document.querySelector('.paper');
-var elementHtml = document.documentElement;
+						<string>var elementHtml = document.querySelector('.page');
 copy(elementHtml.innerHTML)</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>54503</integer>
+						<integer>26546</integer>
 						<key>IsDisclosed</key>
 						<false/>
 						<key>MacroActionType</key>
@@ -216,7 +562,9 @@ copy(elementHtml.innerHTML)</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>54504</integer>
+						<integer>26547</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>KeyCode</key>
 						<integer>36</integer>
 						<key>MacroActionType</key>
@@ -232,7 +580,7 @@ copy(elementHtml.innerHTML)</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>54505</integer>
+						<integer>26548</integer>
 						<key>IsDisclosed</key>
 						<false/>
 						<key>MacroActionType</key>
@@ -244,47 +592,17 @@ copy(elementHtml.innerHTML)</string>
 					</dict>
 					<dict>
 						<key>Action</key>
-						<string>IgnoreCaseRegEx</string>
-						<key>ActionUID</key>
-						<integer>54884</integer>
-						<key>Destination</key>
-						<string>Clipboard</string>
-						<key>MacroActionType</key>
-						<string>SearchReplace</string>
-						<key>Replace</key>
-						<string>\1&lt;p&gt;&lt;a href="%SafariURL%"&gt;%SafariURL%&lt;/a&gt;&lt;/p&gt;%SafariTitle%</string>
-						<key>Search</key>
-						<string>(&lt;h1 class="title" data-reader-unique-id="titleElement"&gt;.*&lt;/h1&gt;)</string>
-						<key>Source</key>
-						<string>Clipboard</string>
-						<key>Which</key>
-						<string>All</string>
-					</dict>
-					<dict>
-						<key>Action</key>
 						<string>IgnoreCaseString</string>
 						<key>ActionUID</key>
-						<integer>54883</integer>
+						<integer>35208</integer>
 						<key>Destination</key>
 						<string>Clipboard</string>
 						<key>MacroActionType</key>
 						<string>SearchReplace</string>
 						<key>Replace</key>
-						<string>        #article img {
-            /* By default, images are centered on their own line. */
-            margin: 0.5em auto;
-            display: block;
-            height: auto;
-			max-width: 100% !important;
-			margin-inline-start: 0px !important;
-        }</string>
+						<string>&lt;a href="%SafariURL%"&gt;Link&lt;/a&gt;</string>
 						<key>Search</key>
-						<string>        #article img {
-            /* By default, images are centered on their own line. */
-            margin: 0.5em auto;
-            display: block;
-            height: auto;
-        }</string>
+						<string>&lt;div class="page-number"&gt;Page 1 of 1&lt;/div&gt;</string>
 						<key>Source</key>
 						<string>Clipboard</string>
 						<key>Which</key>
@@ -292,11 +610,11 @@ copy(elementHtml.innerHTML)</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>54507</integer>
+						<integer>35207</integer>
 						<key>Append</key>
 						<false/>
 						<key>Destination</key>
-						<string>/Users/min/Library/Application Support/DEVONthink 3/Inbox/%SafariTitle%.html</string>
+						<string>/Users/min/Library/Application Support/DEVONthink 3/Inbox/%ICUDateTime%yyyyMMddHHmm%.html</string>
 						<key>Encoding</key>
 						<string>UTF8</string>
 						<key>Format</key>
@@ -308,14 +626,23 @@ copy(elementHtml.innerHTML)</string>
 						<key>Source</key>
 						<string>Text</string>
 						<key>Text</key>
-						<string>&lt;!DOCTYPE html&gt;
-&lt;html class="paper"&gt;
+						<string>&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/&gt;
+
+%t%
+
+&lt;/head&gt;
+&lt;body style="font-family: Palatino;Songti SC;"&gt;
+
 %SystemClipboard%
+
+&lt;/body&gt;
 &lt;/html&gt;</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>55259</integer>
+						<integer>55634</integer>
 						<key>MacroActionType</key>
 						<string>SelectMenuItem</string>
 						<key>Menu</key>
@@ -337,7 +664,7 @@ copy(elementHtml.innerHTML)</string>
 					</dict>
 					<dict>
 						<key>ActionUID</key>
-						<integer>54508</integer>
+						<integer>26554</integer>
 						<key>DeviceID</key>
 						<string>SOUNDEFFECTS</string>
 						<key>IsDisclosed</key>
@@ -351,7 +678,7 @@ copy(elementHtml.innerHTML)</string>
 					</dict>
 				</array>
 				<key>CreationDate</key>
-				<real>687774667.80185294</real>
+				<real>671743464.78933001</real>
 				<key>CustomIconData</key>
 				<data>
 				TU0AKgAACTCAACBQOCQWDQeEQmFQuGQ2HQ+IRGJROKRW
@@ -685,12 +1012,10 @@ copy(elementHtml.innerHTML)</string>
 				AAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L///2jAAAD
 				3AAAwGw=
 				</data>
-				<key>IsActive</key>
-				<false/>
 				<key>ModificationDate</key>
-				<real>688033068.22154903</real>
+				<real>720092901.18201804</real>
 				<key>Name</key>
-				<string>js Pretty HTML R</string>
+				<string>js Pretty HTML</string>
 				<key>Triggers</key>
 				<array>
 					<dict>
@@ -705,7 +1030,7 @@ copy(elementHtml.innerHTML)</string>
 					</dict>
 				</array>
 				<key>UID</key>
-				<string>8E8E55F5-7946-450B-9C9E-109C0F21B985</string>
+				<string>AF7A530B-FF4A-4326-9F25-1D2D45629042</string>
 			</dict>
 		</array>
 		<key>Name</key>
@@ -722,7 +1047,7 @@ copy(elementHtml.innerHTML)</string>
 					<key>Name</key>
 					<string>Safari</string>
 					<key>NewFile</key>
-					<string>/Applications/Safari.app</string>
+					<string>/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app</string>
 				</dict>
 			</array>
 		</dict>

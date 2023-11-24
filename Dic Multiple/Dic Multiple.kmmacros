@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>651460834.20713794</real>
+		<key>IsActive</key>
+		<false/>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
+						<key>ActionUID</key>
+						<integer>12570193</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4vAgAAKwAAAAEA
+						AAAnAgAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA4
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjMgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmluXApHaXRIdWI6
+						IGh0dHBzOi8vZ2l0aHViLmNvbS9C
+						bGFja3dpbk1pbn0BAAAAIwAAAAEA
+						AAAHAAAAVFhULnJ0ZhAAAAADzWVk
+						tgEAAAAAAAAAAAAA
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12570192</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>KeyCode</key>
+						<integer>8</integer>
+						<key>MacroActionType</key>
+						<string>SimulateKeystroke</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+						<key>ReleaseAll</key>
+						<false/>
+						<key>TargetApplication</key>
+						<dict/>
+						<key>TargetingType</key>
+						<string>Front</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12570190</integer>
+						<key>DisplayKind</key>
+						<string>Window</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Source</key>
+						<string>Nothing</string>
+						<key>Text</key>
+						<string>tt=`pbpaste`
+
+for keystr in `echo $tt | sed 's/ / /g'`
+do
+
+read -r -d '' applescriptCode1 &lt;&lt;'EOF'
+tell application "System Events" to tell process "Dictionary"	activate	click menu item "New Window" of menu "File" of menu bar 1	set frontmost to trueend tell	
+EOF
+osascript -e "$applescriptCode1"
+
+open dict://$keystr
+done</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>722512826.96190906</real>
+				<key>CustomIconData</key>
+				<string>KMEP-GenericApplication-/System/Applications/Dictionary.app</string>
+				<key>ModificationDate</key>
+				<real>722513187.75857103</real>
+				<key>Name</key>
+				<string>Dic Multiple</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>2</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>6400</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>12F6F110-A2C1-44F0-9175-FED3BA43DF1A</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Archived</string>
+		<key>ToggleMacroUID</key>
+		<string>048AFDE9-45CC-4594-96C6-3C6A721A57A2</string>
+		<key>UID</key>
+		<string>E78FD379-5D28-4016-9B5E-B8ED4546BC4E</string>
+	</dict>
+</array>
+</plist>

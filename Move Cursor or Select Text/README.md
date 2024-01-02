@@ -7,7 +7,7 @@
 - 复制文本到段首：双击 `⇧Shift-⌘Command-左箭头`
 - 复制文本到段末：双击 `⇧Shift-⌘Command-右箭头`
 
-出处：[《如何快速移动光标和选取文本，兼谈  Keyboard Maestro 快捷键以及全键盘党》](https://utgd.net)，发布时间未定。
+出处：[《如何快速移动光标和选取文本，兼谈  Keyboard Maestro 快捷键以及全键盘党》](https://utgd.net/article/20359)，预计2024年1月末发布。
 
 ![title](img1.gif)
 

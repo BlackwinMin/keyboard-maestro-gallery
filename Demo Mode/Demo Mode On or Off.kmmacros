@@ -4,16 +4,101 @@
 <array>
 	<dict>
 		<key>Activate</key>
-		<string>Normal</string>
+		<string>WithPalette</string>
+		<key>AddToMacroPalette</key>
+		<false/>
+		<key>AddToStatusMenu</key>
+		<false/>
 		<key>CreationDate</key>
-		<real>534004469.21942103</real>
+		<real>726385516.61848199</real>
 		<key>CustomIconData</key>
-		<string>KMEP-KeyboardMaestro</string>
+		<string>KMEP-DebuggerViewVariable</string>
+		<key>DisplayToggle</key>
+		<false/>
+		<key>KeyCode</key>
+		<integer>35</integer>
 		<key>Macros</key>
 		<array>
 			<dict>
 				<key>Actions</key>
 				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12578914</integer>
+						<key>DisplayKind</key>
+						<string>Variable</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Source</key>
+						<string>Nothing</string>
+						<key>Text</key>
+						<string>osascript -e 'tell app "finder" to get posix path of (get desktop picture as alias)'</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>lastWallpaper</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12579698</integer>
+						<key>MacroActionType</key>
+						<string>SetDesktopImage</string>
+						<key>Path</key>
+						<string>/System/Library/Desktop Pictures/Solid Colors/Cyan.png</string>
+						<key>Scaling</key>
+						<string>FillScreen</string>
+						<key>ScreenArea</key>
+						<dict>
+							<key>ScreenAreaType</key>
+							<string>ScreenMain</string>
+						</dict>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12578913</integer>
+						<key>DisplayKind</key>
+						<string>Window</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Source</key>
+						<string>Nothing</string>
+						<key>Text</key>
+						<string>defaults write com.apple.finder CreateDesktop -bool FALSE; killall Finder</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
 					<dict>
 						<key>ActionUID</key>
 						<integer>12578518</integer>
@@ -40,6 +125,18 @@
 						<key>TrimResultsNew</key>
 						<true/>
 						<key>UseText</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12578915</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Pause</string>
+						<key>Time</key>
+						<string>1</string>
+						<key>TimeOutAbortsMacro</key>
 						<true/>
 					</dict>
 					<dict>
@@ -168,8 +265,8 @@
 						AAEAAgAAAT0AAwAAAAEAAgAAAUAA
 						AwAAAwAAAAioAVMAAwAAAAEAAQAA
 						h3MABwAADEgAAA6oAAAAAAAAAJAA
-						AAABAAAAkAAAAAHy8v//AADn5+7u
-						8PDZ2c7Ourr4+EdHAAAAAAAAAAAA
+						AAABAAAAkAAAAAH8/P//AADx8fj4
+						+vrj49jYxMT//0dHAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -192,8 +289,8 @@
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-						AAAAAAAAAAAAAAAAAAAAAAAAAPLy
-						//8AAOfn7u7w8NnZzs66uvj4R0cA
+						AAAAAAAAAAAAAAAAAAAAAAAAAPz8
+						//8AAPHx+Pj6+uPj2NjExP//R0cA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -217,8 +314,8 @@
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-						AAAAAAAA8vL//wAA5+fu7vDw2dnO
-						zrq6+PhHRwAAAAAAAAAAAAAAAAAA
+						AAAAAAAA/Pz//wAA8fH4+Pr64+PY
+						2MTE//9HRwAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -415,6 +512,16 @@
 					</dict>
 					<dict>
 						<key>ActionUID</key>
+						<integer>12578917</integer>
+						<key>MacroActionType</key>
+						<string>Pause</string>
+						<key>Time</key>
+						<string>0.2</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
 						<integer>12578523</integer>
 						<key>Application</key>
 						<dict>
@@ -434,7 +541,7 @@
 				<key>CreationDate</key>
 				<real>726144261.72177303</real>
 				<key>ModificationDate</key>
-				<real>726144898.66849005</real>
+				<real>726386117.58408296</real>
 				<key>Name</key>
 				<string>Demo Mode On</string>
 				<key>Triggers</key>
@@ -443,25 +550,82 @@
 				<string>9E2D9373-D0A3-4797-A867-D90B995263AE</string>
 			</dict>
 		</array>
+		<key>Modifiers</key>
+		<integer>6912</integer>
 		<key>Name</key>
-		<string>Global Macro Group</string>
+		<string>XMode - Demo</string>
+		<key>PaletteUnderMouse</key>
+		<false/>
 		<key>ToggleMacroUID</key>
-		<string>759D3B27-673A-457E-9F53-CCAC9A3EA6E8</string>
+		<string>1B3472E9-363F-4A26-B6AC-5790E7D93D4C</string>
 		<key>UID</key>
-		<string>AC334449-123A-4293-A066-067308C13C99</string>
+		<string>A6F2C4AE-7445-427F-9EA1-E8F1EE696EF6</string>
 	</dict>
 	<dict>
 		<key>Activate</key>
-		<string>Normal</string>
+		<string>WithPalette</string>
+		<key>AddToMacroPalette</key>
+		<false/>
+		<key>AddToStatusMenu</key>
+		<false/>
 		<key>CreationDate</key>
-		<real>534004469.21942103</real>
+		<real>726385516.61848199</real>
 		<key>CustomIconData</key>
-		<string>KMEP-KeyboardMaestro</string>
+		<string>KMEP-DebuggerViewVariable</string>
+		<key>DisplayToggle</key>
+		<false/>
+		<key>KeyCode</key>
+		<integer>35</integer>
 		<key>Macros</key>
 		<array>
 			<dict>
 				<key>Actions</key>
 				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12579699</integer>
+						<key>MacroActionType</key>
+						<string>SetDesktopImage</string>
+						<key>Path</key>
+						<string>%lastWallpaper%</string>
+						<key>Scaling</key>
+						<string>FillScreen</string>
+						<key>ScreenArea</key>
+						<dict>
+							<key>ScreenAreaType</key>
+							<string>ScreenMain</string>
+						</dict>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12579697</integer>
+						<key>DisplayKind</key>
+						<string>Window</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Source</key>
+						<string>Nothing</string>
+						<key>Text</key>
+						<string>defaults write com.apple.finder CreateDesktop -bool TRUE; killall Finder</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
 					<dict>
 						<key>ActionUID</key>
 						<integer>12578520</integer>
@@ -488,6 +652,18 @@
 						<key>TrimResultsNew</key>
 						<true/>
 						<key>UseText</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12578916</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Pause</string>
+						<key>Time</key>
+						<string>0.5</string>
+						<key>TimeOutAbortsMacro</key>
 						<true/>
 					</dict>
 					<dict>
@@ -616,8 +792,8 @@
 						AAEAAgAAAT0AAwAAAAEAAgAAAUAA
 						AwAAAwAAAAioAVMAAwAAAAEAAQAA
 						h3MABwAADEgAAA6oAAAAAAAAAJAA
-						AAABAAAAkAAAAAHy8v//AADn5+7u
-						8PDZ2c7Ourr4+EdHAAAAAAAAAAAA
+						AAABAAAAkAAAAAH8/P//AADx8fj4
+						+vrj49jYxMT//0dHAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -640,8 +816,8 @@
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-						AAAAAAAAAAAAAAAAAAAAAAAAAPLy
-						//8AAOfn7u7w8NnZzs66uvj4R0cA
+						AAAAAAAAAAAAAAAAAAAAAAAAAPz8
+						//8AAPHx+Pj6+uPj2NjExP//R0cA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -665,8 +841,8 @@
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-						AAAAAAAA8vL//wAA5+fu7vDw2dnO
-						zrq6+PhHRwAAAAAAAAAAAAAAAAAA
+						AAAAAAAA/Pz//wAA8fH4+Pr64+PY
+						2MTE//9HRwAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -863,6 +1039,18 @@
 					</dict>
 					<dict>
 						<key>ActionUID</key>
+						<integer>12579307</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Pause</string>
+						<key>Time</key>
+						<string>0.2</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
 						<integer>12578522</integer>
 						<key>Application</key>
 						<dict>
@@ -882,7 +1070,7 @@
 				<key>CreationDate</key>
 				<real>726144625.55371797</real>
 				<key>ModificationDate</key>
-				<real>726144910.98175704</real>
+				<real>726386115.75478804</real>
 				<key>Name</key>
 				<string>Demo Mode Off</string>
 				<key>Triggers</key>
@@ -891,12 +1079,16 @@
 				<string>38467615-3907-4D2D-B3F4-AC131A4ACDD1</string>
 			</dict>
 		</array>
+		<key>Modifiers</key>
+		<integer>6912</integer>
 		<key>Name</key>
-		<string>Global Macro Group</string>
+		<string>XMode - Demo</string>
+		<key>PaletteUnderMouse</key>
+		<false/>
 		<key>ToggleMacroUID</key>
-		<string>759D3B27-673A-457E-9F53-CCAC9A3EA6E8</string>
+		<string>1B3472E9-363F-4A26-B6AC-5790E7D93D4C</string>
 		<key>UID</key>
-		<string>AC334449-123A-4293-A066-067308C13C99</string>
+		<string>A6F2C4AE-7445-427F-9EA1-E8F1EE696EF6</string>
 	</dict>
 </array>
 </plist>

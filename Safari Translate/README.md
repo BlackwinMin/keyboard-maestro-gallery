@@ -6,6 +6,7 @@
 - 1.1：由会员 @Felz33 修改，可以保留原始文本的样式；
 - 1.2：适配了部分论坛，比如 Zettelkasten forum；
 - 1.3：适配了 XHTML 文件，可以翻译某些网站下载的 EPUB 和论文了。
+- 1.4：兼容没有标签包裹的文本段落（例如 Graham 和 Minsky 的网站）。
 
 系列文章：
 
@@ -14,7 +15,7 @@
 - [《将外文电子书翻译成双语对照版本，并在任何设备上阅读》](https://utgd.net/article/10001)：对照翻译电子书，输出双语 EPUB，已经取代输出 PDF 的旧方案。
 - [《在 DEVONthink 中对照翻译外文 Newsletter》](https://utgd.net/article/10005)：在 DEVONthink 中翻译 Newsletter。
 - [《UNTAG Premium 第九期》](https://utgd.net/article/9628)：适配了部分论坛页面。
-- [《UNTAG Premium 年度特辑 01》](https://utgd.net/article/9760)：全文翻译 DEVONthink 中的 RSS 文章（前提是你订阅的 RSS 源了你全文）。
+- [《UNTAG Premium 年度特辑 01》](https://utgd.net/article/9760)：全文翻译 DEVONthink 中的 RSS 文章（前提是你订阅的 RSS 源给了你全文）。
 
 为方便没有 Keyboard Maestro 的读者，下面也提供 Bookmarklet 版本源代码。Bookmarklet 仅负责“对照”，不负责“翻译”，“翻译”需要使用各个浏览器自带的翻译功能，或者使用翻译插件。我仅测试了 Safari、Chrome、Firefox 和 Edge 的自带翻译功能（20230226），没有精力一一测试其他软件，插件更是一个都没有测过，有需要的请自行测试。
 

@@ -69,12 +69,27 @@
 						<true/>
 						<key>IncludeStdErr</key>
 						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
 						<key>MacroActionType</key>
 						<string>ExecuteAppleScript</string>
 						<key>Path</key>
 						<string></string>
 						<key>Text</key>
-						<string>tell application "Finder"	set selectedFiles to selection	set fileNames to {}	repeat with selectedFile in selectedFiles		set fileName to name of selectedFile		set end of fileNames to fileName	end repeatend tellset the_string to ""repeat with this_line in fileNames	set the_string to the_string &amp; this_line &amp; " "end repeatset the_string to items 1 thru -2 of the_string as stringset AppleScript's text item delimiters to spaceset stringList to every text item of the_stringset AppleScript's text item delimiters to ""tell application "System Events"	set activeApp to name of first application process whose frontmost is true	activate	set f to (choose from list stringList with multiple selections allowed)end tellf</string>
+						<string>tell application "Finder"
+	set selectedFiles to selection
+	set fileNames to {}
+	repeat with selectedFile in selectedFiles
+		set itemName to name of selectedFile
+		set AppleScript's text item delimiters to "."
+		set itemNameParts to text items of itemName
+		set AppleScript's text item delimiters to {""}
+		set itemNameWithoutExtension to item 1 of itemNameParts
+		set end of fileNames to itemNameWithoutExtension
+	end repeat
+end tellset the_string to ""repeat with this_line in fileNames	set the_string to the_string &amp; this_line &amp; " "end repeatset the_string to items 1 thru -2 of the_string as stringset AppleScript's text item delimiters to spaceset stringList to every text item of the_stringset AppleScript's text item delimiters to ""tell application "System Events"	set activeApp to name of first application process whose frontmost is true	activate	set f to (choose from list stringList with multiple selections allowed)end tellf</string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
 						<key>TrimResults</key>
@@ -88,7 +103,7 @@
 				<key>CreationDate</key>
 				<real>717743011.62186098</real>
 				<key>ModificationDate</key>
-				<real>719738900.31310701</real>
+				<real>732260990.04826701</real>
 				<key>Name</key>
 				<string>Filename Big Bang</string>
 				<key>Triggers</key>

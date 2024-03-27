@@ -8,6 +8,6 @@
 
 默认仅在 Preview 中启用，可以自行增加其他支持应用。
 
-原文：Keyboard Maestro 查词翻译一体化解决方案（预计2023年11月发布）。
+原文：[Keyboard Maestro 查词翻译一体化解决方案》](https://utgd.net/article/20423/)。
 
 ![title](img.gif)

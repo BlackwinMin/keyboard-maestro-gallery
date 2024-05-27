@@ -61,14 +61,71 @@
 						<string>Copyright statement and contact information</string>
 					</dict>
 					<dict>
+						<key>ActionColor</key>
+						<string>Red</string>
 						<key>ActionUID</key>
-						<integer>12564656</integer>
+						<integer>12572566</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC70AgAAKwAAAAEA
+						AADsAgAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA5
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmbmlsXGZjaGFyc2V0MTM0
+						IFBpbmdGYW5nU0MtUmVndWxhcjtc
+						ZjFcZnN3aXNzXGZjaGFyc2V0MCBI
+						ZWx2ZXRpY2E7fQp7XGNvbG9ydGJs
+						O1xyZWQyNTVcZ3JlZW4yNTVcYmx1
+						ZTI1NTtccmVkMFxncmVlbjBcYmx1
+						ZTA7fQp7XCpcZXhwYW5kZWRjb2xv
+						cnRibDs7XGNzc3JnYlxjMFxjMFxj
+						MFxjODQ3MDZcY25hbWUgY29udHJv
+						bFRleHRDb2xvcjt9ClxwYXJkXHR4
+						NTYwXHR4MTEyMFx0eDE2ODBcdHgy
+						MjQwXHR4MjgwMFx0eDMzNjBcdHgz
+						OTIwXHR4NDQ4MFx0eDUwNDBcdHg1
+						NjAwXHR4NjE2MFx0eDY3MjBccGFy
+						ZGlybmF0dXJhbFxwYXJ0aWdodGVu
+						ZmFjdG9yMAoKXGYwXGZzMjYgXGNm
+						MiBcJ2QzXCdkMFwnZDBcJ2E3XCdi
+						NVwnYzRcJ2JiXCdiMFwnZDNcJ2E2
+						XCdiNVwnYjFcJ2NhXCdiOVwnZDNc
+						J2MzXCdkMlwnZDRcJ2NmXCdjMlwn
+						YzRcJ2FjXCdjOFwnY2ZcJ2Q2XCdi
+						NVwnYTNcJ2JhClxmMSBcCiVEaWN0
+						aW9uYXJ5W3NlbGVjdG1lbnVIaXN0
+						b3J5LCVBcHBsaWNhdGlvbiUxJV0l
+						XApcCgpcZjAgXCdiNFwnY2JcJ2Nl
+						XCdjYVwnY2NcJ2UyXCdkNVwnZmRc
+						J2Q0XCdkYVwnZDBcJ2RlXCdiOFwn
+						YjRcJ2Q2XCdkMFwnYTNcJ2JhClxm
+						MSBodHRwczovL2ZvcnVtLmtleWJv
+						YXJkbWFlc3Ryby5jb20vdC9ob3ct
+						dG8tZ2V0LWxhc3Qtc2VsZWN0ZWQt
+						bWVudS1pdGVtLzM1OTU0LzEwfQEA
+						AAAjAAAAAQAAAAcAAABUWFQucnRm
+						EAAAAMHePma2AQAAAAAAAAAAAAA=
+						</data>
+						<key>Title</key>
+						<string>%SelectMenuByNameText% 变量无效</string>
+					</dict>
+					<dict>
+						<key>ActionColor</key>
+						<string>Green</string>
+						<key>ActionUID</key>
+						<integer>12572565</integer>
 						<key>InitialSearch</key>
 						<string>%Dictionary[selectmenuHistory,%Application%1%]%</string>
 						<key>MacroActionType</key>
 						<string>SelectMenuByName</string>
 						<key>PromptUID</key>
-						<string>0205911A-9D04-48AD-80F8-F4AFCEDD17E7</string>
+						<string>8D287834-5FDB-460C-A273-ED478701AE29</string>
 						<key>TargetApplication</key>
 						<dict/>
 						<key>TargetingType</key>
@@ -77,6 +134,8 @@
 						<string>Wide</string>
 					</dict>
 					<dict>
+						<key>ActionColor</key>
+						<string>Green</string>
 						<key>ActionUID</key>
 						<integer>12565056</integer>
 						<key>Dictionary</key>
@@ -94,9 +153,9 @@
 				<key>CustomIconData</key>
 				<string>KMEP-HID</string>
 				<key>ModificationDate</key>
-				<real>720186834.71099901</real>
+				<real>737356247.71857405</real>
 				<key>Name</key>
-				<string>King of Keystrokes</string>
+				<string>King of Keystrokes X</string>
 				<key>Triggers</key>
 				<array>
 					<dict>

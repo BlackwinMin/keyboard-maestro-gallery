@@ -4,6 +4,6 @@
 
 使用前请设置生效范围，限制在需要自动静音的会议软件中，避免干扰日常操作。
 
-出处：《开会打字自动静音，一次基于 Keyboard Maestro 的尝试》（预计 2024 年六月发布）。
+出处：[《开会打字自动静音，一次基于 Keyboard Maestro 的尝试》](https://utgd.net/article/20785)。
 
 ![img](img.gif)

@@ -10,6 +10,6 @@
 
 第三步仅在亮色模式下测试，如果您需要使用暗色模式，请添加一个 click on found image 模块并调整逻辑关系。
 
-出处：[《用 Keyboard Maestro 一键开启“演示模式”》](https://utgd.net/article/20710)，预计2024年5月末发布。
+出处：[《用 Keyboard Maestro 一键开启“演示模式”》](https://utgd.net/article/20710)。
 
 ![img](img.gif)

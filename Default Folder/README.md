@@ -11,6 +11,6 @@
 3. 将同一步骤中的 `"Sketch"` 改为目标软件；如果您修改了示例动作的名称，请将 AppleScript 脚本中的 `Default Folder` 作相应修改。
 4. 在末尾两处“Select ‘Save’ in the Menu ‘File’ in Sketch”步骤中，重新确定目标软件保存文件的菜单栏项目（注意中英文，即便您目前处理的也是 Sketch，我的预设也仅适用于英文界面，中文版需重新设置）。
 
-原文：《文件自动化（三）：为不同软件设置默认文件保存位置》（发布时间未定），出自付费栏目《Keyboard Maestro 进阶指引》，栏目即将在 [UNTAG](https://utgd.net) 上架。
+原文：《文件自动化（三）：为不同软件设置默认文件保存位置》（发布时间未定），拟收录于付费栏目[《Keyboard Maestro 进阶指引》](https://utgd.net/course/20340)。
 
 ![title](img.gif)

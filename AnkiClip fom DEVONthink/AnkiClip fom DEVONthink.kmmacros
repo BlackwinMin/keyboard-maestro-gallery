@@ -18,6 +18,143 @@
 						<key>ActionColor</key>
 						<string>Yellow</string>
 						<key>ActionUID</key>
+						<integer>12597177</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4vAgAAKwAAAAEA
+						AAAnAgAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA5
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjQgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmluXApHaXRIdWI6
+						IGh0dHBzOi8vZ2l0aHViLmNvbS9C
+						bGFja3dpbk1pbn0BAAAAIwAAAAEA
+						AAAHAAAAVFhULnJ0ZhAAAAAYxpNl
+						tgEAAAAAAAAAAAAA
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>808</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>KeyCode</key>
+						<integer>8</integer>
+						<key>MacroActionType</key>
+						<string>SimulateKeystroke</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+						<key>ReleaseAll</key>
+						<false/>
+						<key>TargetApplication</key>
+						<dict/>
+						<key>TargetingType</key>
+						<string>Front</string>
+					</dict>
+					<dict>
+						<key>Action</key>
+						<string>ByPasting</string>
+						<key>ActionUID</key>
+						<integer>809</integer>
+						<key>MacroActionType</key>
+						<string>InsertText</string>
+						<key>Text</key>
+						<string>{{c1::%SystemClipboard%}}</string>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>596102065.22148395</real>
+				<key>CustomIconData</key>
+				<string>KMEP-GenericApplication-/Applications/Anki.app</string>
+				<key>IsActive</key>
+				<false/>
+				<key>ModificationDate</key>
+				<real>733334227.87953603</real>
+				<key>Name</key>
+				<string>Anki ClozeQ compoment</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>40</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>0D77541C-3B84-4BDA-8DC3-A5928653E1FB</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>DEVONthink</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.devon-technologies.think3</string>
+					<key>Name</key>
+					<string>DEVONthink 3</string>
+					<key>NewFile</key>
+					<string>/Applications/DEVONthink 3.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>61D79DA8-8D7A-4AFA-B9A7-3C2467A44083</string>
+		<key>UID</key>
+		<string>EDB9A3E6-3516-435F-A411-A9E021FDF4B8</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>633707084.37810504</real>
+		<key>CustomIconData</key>
+		<string>KMEP-GenericApplication-/Applications/DEVONthink 3.app</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
+						<key>ActionUID</key>
 						<integer>12597178</integer>
 						<key>IsDisclosed</key>
 						<false/>
@@ -252,7 +389,7 @@ end tell</string>
 								<key>MacroActionType</key>
 								<string>SetVariableToText</string>
 								<key>Text</key>
-								<string>"%kmTemp%","%|%","%ICUDateTime%yyyy-MM-dd HH:mm%","%LocalURL%?page=%LocalPage%","[[%LocalTitle%]]"</string>
+								<string>"%kmTemp%","%|%","%LocalURL%?page=%LocalPage%","[[%LocalTitle%]]"</string>
 								<key>Variable</key>
 								<string>t</string>
 							</dict>
@@ -319,7 +456,7 @@ end tell</string>
 						<key>Subtitle</key>
 						<string></string>
 						<key>Text</key>
-						<string>"%kmTemp%","%|%","%ICUDateTime%yyyy-MM-dd HH:mm%","%LocalURL%?page=%LocalPage%","[[%LocalTitle%]]"</string>
+						<string>"%kmTemp%","%|%","%LocalURL%?page=%LocalPage%","[[%LocalTitle%]]"</string>
 						<key>Title</key>
 						<string>%ExecutingMacro%</string>
 					</dict>
@@ -341,7 +478,7 @@ end tell</string>
 				<key>CustomIconData</key>
 				<string>KMEP-GenericApplication-/Applications/Anki.app</string>
 				<key>ModificationDate</key>
-				<real>733334231.26347899</real>
+				<real>745811968.80226505</real>
 				<key>Name</key>
 				<string>Anki ClozeQ</string>
 				<key>Triggers</key>

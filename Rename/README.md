@@ -1,6 +1,8 @@
 # Rename with Keyboard Maestro
 
-用 Keyboard Maestro 重命名文件。出处：《用 Keyboard Maestro 更舒服地重命名文件》（发布时间未定）。
+用 Keyboard Maestro 重命名文件。
+
+出处：[《用 Keyboard Maestro 更舒服地重命名文件》](https://utgd.net/article/20893)。
 
 选中单个文件，弹出修改名字的小窗口：
 

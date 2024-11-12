@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>672396739.60492897</real>
+		<key>CustomIconData</key>
+		<string>KMEP-GenericApplication-/Applications/Microsoft Word.app</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12621273</integer>
+						<key>DisplayKind</key>
+						<string>Briefly</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>tell application "Microsoft Word"	set fName to name of active document	set fPath to path of active document	set fAlias to POSIX path of fPath	set fFull to (fAlias as text) &amp; "/" &amp; (fName as text)		if fFull ends with ".docx" then		set outputFile to text 1 thru -6 of fFull &amp; ".pdf"	else if fFull ends with ".doc" then		set outputFile to text 1 thru -5 of fFull &amp; ".pdf"	else		set outputFile to fFull &amp; ".pdf" -- 如果路径不以 .doc 或 .docx 结尾，添加PDF后缀	end if	
+	choose folder with prompt "因为微软是个傻逼，所以你必须手动点击一下父文件夹" default location fAlias
+		save as active document file name outputFile file format format PDF	outputFileend tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>753079477.52789795</real>
+				<key>CustomIconData</key>
+				<string>KMEP-GenericApplication-/Applications/Microsoft Word.app</string>
+				<key>ModificationDate</key>
+				<real>753080049.69655502</real>
+				<key>Name</key>
+				<string>Save as PDF</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>35</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>B89CA1AD-4FF0-4697-AEF7-5C42453FD55E</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Microsoft Word</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.microsoft.Word</string>
+					<key>Name</key>
+					<string>Microsoft Word</string>
+					<key>NewFile</key>
+					<string>/Applications/Microsoft Word.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>BA40C963-2401-4021-8B01-9116369E6EC9</string>
+		<key>UID</key>
+		<string>B3F2A12E-BC15-4CDC-B9E4-8D7E3E006EBB</string>
+	</dict>
+</array>
+</plist>

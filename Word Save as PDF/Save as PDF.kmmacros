@@ -32,9 +32,7 @@
 						<key>Path</key>
 						<string></string>
 						<key>Text</key>
-						<string>tell application "Microsoft Word"	set fName to name of active document	set fPath to path of active document	set fAlias to POSIX path of fPath	set fFull to (fAlias as text) &amp; "/" &amp; (fName as text)		if fFull ends with ".docx" then		set outputFile to text 1 thru -6 of fFull &amp; ".pdf"	else if fFull ends with ".doc" then		set outputFile to text 1 thru -5 of fFull &amp; ".pdf"	else		set outputFile to fFull &amp; ".pdf" -- 如果路径不以 .doc 或 .docx 结尾，添加PDF后缀	end if	
-	choose folder with prompt "因为微软是个傻逼，所以你必须手动点击一下父文件夹" default location fAlias
-		save as active document file name outputFile file format format PDF	outputFileend tell</string>
+						<string>tell application "Microsoft Word"	set fName to name of active document	set fPath to path of active document	set fAlias to POSIX path of fPath	set fFull to (fAlias as text) &amp; "/" &amp; (fName as text)		if fFull ends with ".docx" then		set outputFile to text 1 thru -6 of fFull &amp; ".pdf"	else if fFull ends with ".doc" then		set outputFile to text 1 thru -5 of fFull &amp; ".pdf"	else		set outputFile to fFull &amp; ".pdf" -- 如果路径不以 .doc 或 .docx 结尾，添加PDF后缀	end if		choose folder with prompt "请狂按回车键以跳过这个 Microsoft 强加给你的毫无意义的环节" default location fAlias		save as active document file name outputFile file format format PDF	outputFileend tell</string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
 						<key>TrimResults</key>
@@ -50,7 +48,7 @@
 				<key>CustomIconData</key>
 				<string>KMEP-GenericApplication-/Applications/Microsoft Word.app</string>
 				<key>ModificationDate</key>
-				<real>753080049.69655502</real>
+				<real>753694153.393929</real>
 				<key>Name</key>
 				<string>Save as PDF</string>
 				<key>Triggers</key>

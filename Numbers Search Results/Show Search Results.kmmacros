@@ -78,7 +78,69 @@
 						<key>Path</key>
 						<string></string>
 						<key>Text</key>
-						<string>set theResponse to display dialog "Search" default answer "" buttons {"Cancel", "Continue"} default button "Continue"set r to text returned of theResponsetell application "Numbers"	set firstTable to (first table of active sheet of front document)	tell front document		tell first table of active sheet			-- 获取表格的行数和列数			set rowCount to count rows			set columnCount to count columns			-- 创建一个列表来存储搜索结果			set resultList to {}			-- 遍历所有单元格，检查是否包含关键词			repeat with i from 1 to rowCount				repeat with j from 1 to columnCount					-- 获取当前单元格的值					set cellValue to value of cell j of row i of firstTable					set cellminjaRow to (address of (row of cell j of row i of firstTable))					set cellminjaCol to (name of (column of cell j of row i of firstTable))					set minjaCoordinate to cellminjaCol &amp; cellminjaRow					-- 如果单元格包含关键词，则将结果添加到结果列表					if (cellValue contains r) then						set end of resultList to (minjaCoordinate &amp; ":" &amp; minjaCoordinate &amp; " " &amp; cellValue)					end if				end repeat			end repeat			-- 如果找到了匹配的单元格，显示结果			if (count of resultList) &gt; 0 then				set chosenItem to choose from list resultList with prompt "Search Results:"			else				display dialog "没有找到包含关键词的单元格。" buttons {"OK"} default button "OK"			end if		end tell	end tellend tell-- 查找第一个空格的位置set spacePosition to offset of " " in (chosenItem as text)-- 提取空格左侧的部分set minjaCoordinate to text 1 through (spacePosition - 1) of (chosenItem as text)tell application "Numbers"	tell front document		tell active sheet			tell front table				set selection range to range minjaCoordinate			end tell		end tell	end tellend tell</string>
+						<string>set theResponse to display dialog "Search" default answer "" buttons {"Cancel", "Continue"} default button "Continue"
+set r to text returned of theResponse
+
+tell application "Numbers"
+	set firstTable to (first table of active sheet of front document)
+	tell front document
+		tell first table of active sheet
+			-- 获取表格的行数和列数
+			set rowCount to count rows
+			set columnCount to count columns
+			-- 创建一个列表来存储搜索结果
+			set resultList to {}
+			-- 遍历所有单元格，检查是否包含关键词
+			repeat with i from 1 to rowCount
+				repeat with j from 1 to columnCount
+					-- 获取当前单元格的值
+					set cellValue to value of cell j of row i of firstTable
+					set cellminjaRow to (address of (row of cell j of row i of firstTable))
+					set cellminjaCol to (name of (column of cell j of row i of firstTable))
+					set minjaCoordinate to cellminjaCol &amp; cellminjaRow
+					-- 如果单元格包含关键词，则将结果添加到结果列表
+					if (cellValue contains r) then
+						set end of resultList to (minjaCoordinate &amp; ":" &amp; minjaCoordinate &amp; " " &amp; cellValue)
+					end if
+				end repeat
+			end repeat
+		end tell
+	end tell
+end tell
+
+on f1(resultList)
+	-- 如果找到了匹配的单元格，显示结果
+	if (count of resultList) &gt; 0 then
+		set chosenItem to choose from list resultList with prompt "Search Results:"
+	else
+		display dialog "没有找到包含关键词的单元格。" buttons {"OK"} default button "OK"
+		return
+	end if
+	
+	-- 查找第一个空格的位置
+	set spacePosition to offset of " " in (chosenItem as text)
+	-- 提取空格左侧的部分
+	set minjaCoordinate to text 1 through (spacePosition - 1) of (chosenItem as text)
+	
+	try
+		tell application "Numbers"
+			tell front document
+				tell active sheet
+					tell front table
+						set selection range to range minjaCoordinate
+					end tell
+				end tell
+			end tell
+		end tell
+	end try
+	
+	if chosenItem is not false then
+		f1(resultList)
+	end if
+	
+end f1
+
+f1(resultList)</string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
 						<key>TrimResults</key>
@@ -94,7 +156,7 @@
 				<key>CustomIconData</key>
 				<string>KMEP-GenericApplication-/Applications/Numbers.app</string>
 				<key>ModificationDate</key>
-				<real>756351600.00897098</real>
+				<real>756369349.220994</real>
 				<key>Name</key>
 				<string>Show Search Results</string>
 				<key>Triggers</key>

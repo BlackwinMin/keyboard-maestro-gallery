@@ -1,11 +1,7 @@
-# Numbers Search Results
+# Tag Pane 低技术标签面板
 
-以列表形式，在 Numbers 中一次性显示所有搜索结果，并可以点击跳转。
+macOS 的标签极不稳定，Spotlight 更令其雪上加霜。我不得不寻找一种不依赖系统标签机制的低技术标签管理方式，类似于 Windows 下某些直接将标签写入文件名的做法。
 
-The old anb good way as Numbers 09 :)
-
-纯 AppleScript，可移植到其他自动化工具中。
-
-出处：《找回 Numbers 的古典搜索结果列表界面》（发布时间未定）。
+出处：[标签大爆炸：一种低技术的标签管理方案](https://utgd.net/article/21082/)。
 
 ![img](img.gif)

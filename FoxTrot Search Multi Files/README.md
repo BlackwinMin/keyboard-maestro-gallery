@@ -4,7 +4,7 @@
 
 有两个版本，分别用于在 Finder 中选文件或直接在 FoxTrot 搜索结果中选文件。
 
-出处：《FoxTrot 如何实现多文件搜索》（发布时间未定）。
+出处：[FoxTrot 如何实现多文件搜索](https://utgd.net/article/21008/)。
 
 另有 [LaunchBar 版](https://github.com/BlackwinMin/LaunchBar-gallery/tree/master/FoxTrot%20Search%20Multi%20Files)。
 

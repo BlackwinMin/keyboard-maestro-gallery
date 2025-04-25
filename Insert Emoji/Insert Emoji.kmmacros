@@ -448,7 +448,7 @@
 						<key>MacroActionType</key>
 						<string>Pause</string>
 						<key>Time</key>
-						<string>0.1</string>
+						<string>0.5</string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
 					</dict>
@@ -468,7 +468,7 @@
 				<key>CustomIconData</key>
 				<string>KMEC=Rounded=KMCOLOR:254,204,102,255=😐=82=0=8=1=KMCOLOR:255,255,255,255</string>
 				<key>ModificationDate</key>
-				<real>767240496.87716103</real>
+				<real>767241546.17067802</real>
 				<key>Name</key>
 				<string>Insert Emoji</string>
 				<key>Triggers</key>
@@ -481,7 +481,7 @@
 						<key>SimulateDeletes</key>
 						<true/>
 						<key>TypedString</key>
-						<string>:[a-Z]+\s</string>
+						<string>:[A-Za-z]+\s⌘</string>
 					</dict>
 				</array>
 				<key>UID</key>

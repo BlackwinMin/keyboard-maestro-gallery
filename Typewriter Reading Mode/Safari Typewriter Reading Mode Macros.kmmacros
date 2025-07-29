@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>WithPalette</string>
+		<key>AddToMacroPalette</key>
+		<false/>
+		<key>AddToStatusMenu</key>
+		<false/>
+		<key>CreationDate</key>
+		<real>775473028.54838097</real>
+		<key>CustomIconData</key>
+		<string>KMEP-DebuggerViewVariable</string>
+		<key>DisplayToggle</key>
+		<false/>
+		<key>KeyCode</key>
+		<integer>35</integer>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12638294</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>function selectPreviousBlockAndScroll() {
+  // 支持的块级元素
+  const selectors = 'p, ul, blockquote';
+  const blocks = Array.from(document.querySelectorAll(selectors));
+
+  if (blocks.length === 0) {
+    console.log('页面中没有匹配的段落、列表或引用');
+    return;
+  }
+
+  const selection = window.getSelection();
+  let currentIndex = -1;
+
+  for (let i = 0; i &lt; blocks.length; i++) {
+    if (selection.anchorNode &amp;&amp; blocks[i].contains(selection.anchorNode)) {
+      currentIndex = i;
+      break;
+    }
+  }
+
+  // 如果没有当前选中，默认从最后一个开始
+  const prevIndex = currentIndex === -1 ? blocks.length - 1 : currentIndex - 1;
+
+  if (prevIndex &lt; 0) {
+    console.log('已经是第一个块元素，无法再向上选中');
+    return;
+  }
+
+  const target = blocks[prevIndex];
+
+  // 选中目标元素内容
+  const range = document.createRange();
+  range.selectNodeContents(target);
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  // 滚动，使目标元素顶部对齐到视口 40% 处
+  const rect = target.getBoundingClientRect();
+  const targetTop = window.scrollY + rect.top;
+  const offset = window.innerHeight * 0.3;
+
+  window.scrollTo({
+    top: targetTop - offset,
+    behavior: 'smooth'
+  });
+}
+
+// 调用函数
+selectPreviousBlockAndScroll();</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseModernSyntax</key>
+						<false/>
+						<key>UseText</key>
+						<true/>
+						<key>WebBrowser</key>
+						<string>Safari</string>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>775473180.32433403</real>
+				<key>CustomIconData</key>
+				<string>KMEP-Up</string>
+				<key>ModificationDate</key>
+				<real>775474049.85215402</real>
+				<key>Name</key>
+				<string>Typewriter Scroll Up</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>40</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>126</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>123</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>D3267FE5-44DC-4C02-9D29-4482E8E1F1B0</string>
+			</dict>
+		</array>
+		<key>Modifiers</key>
+		<integer>6912</integer>
+		<key>Name</key>
+		<string>XMode - Safari Typewriter</string>
+		<key>PaletteUnderMouse</key>
+		<false/>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.Safari</string>
+					<key>Name</key>
+					<string>Safari</string>
+					<key>NewFile</key>
+					<string>/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>Theme</key>
+		<dict>
+			<key>Opacity</key>
+			<integer>23</integer>
+			<key>Size</key>
+			<integer>29</integer>
+			<key>Theme</key>
+			<string>Evening</string>
+			<key>UseDefaultInstead</key>
+			<false/>
+			<key>UseText</key>
+			<false/>
+			<key>UseTitle</key>
+			<false/>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>F45BB630-FEA7-41F2-93C0-9319B360FC45</string>
+		<key>UID</key>
+		<string>E89B2777-F18E-449E-A6DF-5B30AA9199C2</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>WithPalette</string>
+		<key>AddToMacroPalette</key>
+		<false/>
+		<key>AddToStatusMenu</key>
+		<false/>
+		<key>CreationDate</key>
+		<real>775473028.54838097</real>
+		<key>CustomIconData</key>
+		<string>KMEP-DebuggerViewVariable</string>
+		<key>DisplayToggle</key>
+		<false/>
+		<key>KeyCode</key>
+		<integer>35</integer>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12638292</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>function selectNextBlockAndScroll() {
+  // 支持的块级元素选择器
+  const selectors = 'p, ul, blockquote';
+  const blocks = Array.from(document.querySelectorAll(selectors));
+
+  if (blocks.length === 0) {
+    console.log('页面中没有匹配的段落、列表或引用');
+    return;
+  }
+
+  const selection = window.getSelection();
+  let currentIndex = -1;
+
+  for (let i = 0; i &lt; blocks.length; i++) {
+    if (selection.anchorNode &amp;&amp; blocks[i].contains(selection.anchorNode)) {
+      currentIndex = i;
+      break;
+    }
+  }
+
+  // 如果当前没有选中，则从第一个开始
+  const nextIndex = currentIndex === -1 ? 0 : currentIndex + 1;
+
+  if (nextIndex &gt;= blocks.length) {
+    console.log('已经是最后一个块元素，无法再向下选中');
+    return;
+  }
+
+  const target = blocks[nextIndex];
+
+  // 选中该块内容
+  const range = document.createRange();
+  range.selectNodeContents(target);
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  // 滚动：将目标顶部滚动到视口的 40% 高度位置
+  const rect = target.getBoundingClientRect();
+  const targetTop = window.scrollY + rect.top;
+  const offset = window.innerHeight * 0.3;
+
+  window.scrollTo({
+    top: targetTop - offset,
+    behavior: 'smooth'
+  });
+}
+
+// 调用函数
+selectNextBlockAndScroll();
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseModernSyntax</key>
+						<false/>
+						<key>UseText</key>
+						<true/>
+						<key>WebBrowser</key>
+						<string>Safari</string>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>775473028.54843199</real>
+				<key>CustomIconData</key>
+				<string>KMEP-Down</string>
+				<key>ModificationDate</key>
+				<real>775474074.439363</real>
+				<key>Name</key>
+				<string>Typewriter Scroll Down</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>38</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>125</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>124</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>0</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>63120230-AE50-43F1-9C7B-432FB215EBFD</string>
+			</dict>
+		</array>
+		<key>Modifiers</key>
+		<integer>6912</integer>
+		<key>Name</key>
+		<string>XMode - Safari Typewriter</string>
+		<key>PaletteUnderMouse</key>
+		<false/>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.Safari</string>
+					<key>Name</key>
+					<string>Safari</string>
+					<key>NewFile</key>
+					<string>/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>Theme</key>
+		<dict>
+			<key>Opacity</key>
+			<integer>23</integer>
+			<key>Size</key>
+			<integer>29</integer>
+			<key>Theme</key>
+			<string>Evening</string>
+			<key>UseDefaultInstead</key>
+			<false/>
+			<key>UseText</key>
+			<false/>
+			<key>UseTitle</key>
+			<false/>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>F45BB630-FEA7-41F2-93C0-9319B360FC45</string>
+		<key>UID</key>
+		<string>E89B2777-F18E-449E-A6DF-5B30AA9199C2</string>
+	</dict>
+</array>
+</plist>

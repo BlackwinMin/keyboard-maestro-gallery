@@ -97,93 +97,179 @@ end tell</string>
 						<array>
 							<dict>
 								<key>ActionUID</key>
-								<integer>12636311</integer>
-								<key>DisplayKind</key>
-								<string>AppendVar</string>
-								<key>HonourFailureSettings</key>
-								<true/>
-								<key>IncludeStdErr</key>
-								<false/>
-								<key>IncludedVariables</key>
-								<array>
-									<string>9999</string>
-								</array>
-								<key>MacroActionType</key>
-								<string>ExecuteAppleScript</string>
-								<key>Path</key>
-								<string></string>
-								<key>Text</key>
-								<string>tell application "System Events"	tell process "Finder"		get name of first menu item of menu 1 of menu bar item "Edit" of menu bar 1	end tellend tell</string>
-								<key>TimeOutAbortsMacro</key>
-								<true/>
-								<key>TrimResults</key>
-								<true/>
-								<key>TrimResultsNew</key>
-								<true/>
-								<key>UseText</key>
-								<true/>
-								<key>Variable</key>
-								<string>localMinja</string>
-							</dict>
-							<dict>
-								<key>ActionUID</key>
-								<integer>12636312</integer>
-								<key>Buttons</key>
-								<array>
-									<dict>
-										<key>Button</key>
-										<string>OK</string>
-										<key>Cancel</key>
-										<false/>
-									</dict>
-									<dict>
-										<key>Button</key>
-										<string>Cancel</string>
-										<key>Cancel</key>
-										<true/>
-									</dict>
-								</array>
-								<key>IsDisclosed</key>
-								<false/>
-								<key>MacroActionType</key>
-								<string>PromptForUserInput</string>
-								<key>Prompt</key>
-								<string></string>
-								<key>TimeOutAbortsMacro</key>
-								<true/>
-								<key>Title</key>
-								<string>%localMinja% ?</string>
-								<key>Variables</key>
-								<array/>
-							</dict>
-							<dict>
-								<key>ActionUID</key>
-								<integer>12636313</integer>
+								<integer>12638685</integer>
 								<key>Conditions</key>
 								<dict>
 									<key>ConditionList</key>
 									<array>
 										<dict>
-											<key>ActionResultConditionType</key>
-											<string>IsOK</string>
-											<key>ActionResultText</key>
-											<string>OK</string>
 											<key>ConditionType</key>
-											<string>ActionResult</string>
+											<string>Menu</string>
+											<key>MenuConditionSelectionType</key>
+											<string>Is</string>
+											<key>MenuConditionType</key>
+											<string>IsEnabled</string>
+											<key>MenuModifiers</key>
+											<integer>256</integer>
+											<key>MenuShortcut</key>
+											<string>C</string>
+											<key>MenuTitle</key>
+											<string>Contact…</string>
 										</dict>
 									</array>
 									<key>ConditionListMatch</key>
 									<string>All</string>
 								</dict>
 								<key>ElseActions</key>
-								<array/>
+								<array>
+									<dict>
+										<key>ActionUID</key>
+										<integer>12636311</integer>
+										<key>DisplayKind</key>
+										<string>AppendVar</string>
+										<key>HonourFailureSettings</key>
+										<true/>
+										<key>IncludeStdErr</key>
+										<false/>
+										<key>IncludedVariables</key>
+										<array>
+											<string>9999</string>
+										</array>
+										<key>MacroActionType</key>
+										<string>ExecuteAppleScript</string>
+										<key>Path</key>
+										<string></string>
+										<key>Text</key>
+										<string>tell application "System Events"	tell process "Finder"		get name of first menu item of menu 1 of menu bar item "Edit" of menu bar 1	end tellend tell</string>
+										<key>TimeOutAbortsMacro</key>
+										<true/>
+										<key>TrimResults</key>
+										<true/>
+										<key>TrimResultsNew</key>
+										<true/>
+										<key>UseText</key>
+										<true/>
+										<key>Variable</key>
+										<string>localMinja</string>
+									</dict>
+									<dict>
+										<key>ActionUID</key>
+										<integer>12636312</integer>
+										<key>Buttons</key>
+										<array>
+											<dict>
+												<key>Button</key>
+												<string>OK</string>
+												<key>Cancel</key>
+												<false/>
+											</dict>
+											<dict>
+												<key>Button</key>
+												<string>Cancel</string>
+												<key>Cancel</key>
+												<true/>
+											</dict>
+										</array>
+										<key>IsDisclosed</key>
+										<false/>
+										<key>MacroActionType</key>
+										<string>PromptForUserInput</string>
+										<key>Prompt</key>
+										<string></string>
+										<key>TimeOutAbortsMacro</key>
+										<true/>
+										<key>Title</key>
+										<string>%localMinja% ?</string>
+										<key>Variables</key>
+										<array/>
+									</dict>
+									<dict>
+										<key>ActionUID</key>
+										<integer>12636313</integer>
+										<key>Conditions</key>
+										<dict>
+											<key>ConditionList</key>
+											<array>
+												<dict>
+													<key>ActionResultConditionType</key>
+													<string>IsOK</string>
+													<key>ActionResultText</key>
+													<string>OK</string>
+													<key>ConditionType</key>
+													<string>ActionResult</string>
+												</dict>
+											</array>
+											<key>ConditionListMatch</key>
+											<string>All</string>
+										</dict>
+										<key>ElseActions</key>
+										<array/>
+										<key>MacroActionType</key>
+										<string>IfThenElse</string>
+										<key>ThenActions</key>
+										<array>
+											<dict>
+												<key>ActionUID</key>
+												<integer>12638686</integer>
+												<key>IsDisclosed</key>
+												<false/>
+												<key>KeyCode</key>
+												<integer>6</integer>
+												<key>MacroActionType</key>
+												<string>SimulateKeystroke</string>
+												<key>Modifiers</key>
+												<integer>256</integer>
+												<key>ReleaseAll</key>
+												<false/>
+												<key>TargetApplication</key>
+												<dict/>
+												<key>TargetingType</key>
+												<string>Front</string>
+											</dict>
+											<dict>
+												<key>ActionUID</key>
+												<integer>12638687</integer>
+												<key>DisplayKind</key>
+												<string>Briefly</string>
+												<key>HonourFailureSettings</key>
+												<true/>
+												<key>IncludeStdErr</key>
+												<false/>
+												<key>IncludedVariables</key>
+												<array>
+													<string>9999</string>
+												</array>
+												<key>IsActive</key>
+												<false/>
+												<key>IsDisclosed</key>
+												<false/>
+												<key>MacroActionType</key>
+												<string>ExecuteAppleScript</string>
+												<key>Path</key>
+												<string></string>
+												<key>Text</key>
+												<string>tell application "System Events"	tell process "Finder"		click first menu item of menu 1 of menu bar item "Edit" of menu bar 1	end tellend tell</string>
+												<key>TimeOutAbortsMacro</key>
+												<true/>
+												<key>TrimResults</key>
+												<true/>
+												<key>TrimResultsNew</key>
+												<true/>
+												<key>UseText</key>
+												<true/>
+											</dict>
+										</array>
+										<key>TimeOutAbortsMacro</key>
+										<true/>
+									</dict>
+								</array>
 								<key>MacroActionType</key>
 								<string>IfThenElse</string>
 								<key>ThenActions</key>
 								<array>
 									<dict>
 										<key>ActionUID</key>
-										<integer>12636710</integer>
+										<integer>12638688</integer>
 										<key>IsDisclosed</key>
 										<false/>
 										<key>KeyCode</key>
@@ -198,38 +284,6 @@ end tell</string>
 										<dict/>
 										<key>TargetingType</key>
 										<string>Front</string>
-									</dict>
-									<dict>
-										<key>ActionUID</key>
-										<integer>12636709</integer>
-										<key>DisplayKind</key>
-										<string>Briefly</string>
-										<key>HonourFailureSettings</key>
-										<true/>
-										<key>IncludeStdErr</key>
-										<false/>
-										<key>IncludedVariables</key>
-										<array>
-											<string>9999</string>
-										</array>
-										<key>IsActive</key>
-										<false/>
-										<key>IsDisclosed</key>
-										<false/>
-										<key>MacroActionType</key>
-										<string>ExecuteAppleScript</string>
-										<key>Path</key>
-										<string></string>
-										<key>Text</key>
-										<string>tell application "System Events"	tell process "Finder"		click first menu item of menu 1 of menu bar item "Edit" of menu bar 1	end tellend tell</string>
-										<key>TimeOutAbortsMacro</key>
-										<true/>
-										<key>TrimResults</key>
-										<true/>
-										<key>TrimResultsNew</key>
-										<true/>
-										<key>UseText</key>
-										<true/>
 									</dict>
 								</array>
 								<key>TimeOutAbortsMacro</key>
@@ -266,7 +320,7 @@ end tell</string>
 				<key>CreationDate</key>
 				<real>774150511.07877004</real>
 				<key>ModificationDate</key>
-				<real>774258671.80850005</real>
+				<real>775539155.37154603</real>
 				<key>Name</key>
 				<string>Undo X</string>
 				<key>Triggers</key>

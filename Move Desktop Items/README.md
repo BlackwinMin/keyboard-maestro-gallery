@@ -20,7 +20,7 @@ tell application "Finder"
 end tell
 ```
 
-出处：《吭哧吭哧，全键盘调整 Finder 桌面文件位置》，发布时间未定。 
+出处：[《吭哧吭哧，全键盘调整 Finder 桌面文件位置》](https://utgd.net/article/21255)，预计2025年九月底发布。 
 
 另有 [Shortcuts 版](https://github.com/BlackwinMin/Shortcuts-Actions-gallery/tree/master/Move%20Desktop%20Items)。
 

@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>534004469.21942103</real>
+		<key>CustomIconData</key>
+		<string>KMEP-GenericApplication-/Applications/Safari.app</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12642260</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteJavaScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>(async () =&gt; {
+  // ========= 基本配置（总张数 35，自适应列数避免横向滚动）=========
+  const GRID_ROWS = 5;
+  const GRID_COLS_TARGET = 7;    // 目标最多列，空间不足会自动减少
+  const TOTAL = GRID_ROWS * GRID_COLS_TARGET; // 35
+  const MIN_CELL_WIDTH = 160;    // 单元格最小宽度（可调）
+  const GAP = 10;                // 网格间距
+  const CAPTURE_WIDTH = 320;     // 抓帧画布宽度（生成文件用，展示会自适应）
+  const CAPTURE_HEIGHT = 180;    // 16:9
+
+  const OVERLAY_ID = 'bili-thumb-grid-overlay'; // 使用独立 ID，避免与其他脚本互相影响
+
+  // ========= 工具函数 =========
+  const sleep = (ms) =&gt; new Promise(r =&gt; setTimeout(r, ms));
+  function waitForEvent(target, event, timeoutMs = 10000) {
+    return new Promise((resolve, reject) =&gt; {
+      const onOk = () =&gt; { cleanup(); resolve(); };
+      const onTimeout = () =&gt; { cleanup(); reject(new Error(`Timeout waiting for ${event}`)); };
+      const cleanup = () =&gt; { target.removeEventListener(event, onOk); clearTimeout(timer); };
+      target.addEventListener(event, onOk, { once: true });
+      const timer = setTimeout(onTimeout, timeoutMs);
+    });
+  }
+
+  // 选择 B 站实际播放的视频元素（有时页面上可能有多个 &lt;video&gt;，选取分辨率最大的）
+  function pickBestVideo() {
+    const vids = Array.from(document.querySelectorAll('video')).filter(v =&gt; !v.disablePictureInPicture);
+    if (vids.length === 0) return null;
+    vids.sort((a, b) =&gt; (b.videoWidth * b.videoHeight) - (a.videoWidth * a.videoHeight));
+    return vids[0];
+  }
+
+  // ========= UI =========
+  function createOverlay() {
+    const exist = document.getElementById(OVERLAY_ID);
+    if (exist) exist.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = OVERLAY_ID;
+    Object.assign(overlay.style, {
+      position: 'fixed', inset: '0', background: 'rgba(0,0,0,0.8)',
+      zIndex: 2147483647, display: 'flex', flexDirection: 'column',
+      alignItems: 'center', padding: '24px', boxSizing: 'border-box',
+      backdropFilter: 'blur(2px)'
+    });
+
+    const bar = document.createElement('div');
+    Object.assign(bar.style, {
+      width: '100%', maxWidth: 'min(1400px, 95vw)', display: 'flex',
+      alignItems: 'center', justifyContent: 'space-between',
+      marginBottom: '12px', color: '#fff',
+      fontFamily: 'system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial'
+    });
+    const title = document.createElement('div');
+    title.textContent = `Bilibili 等间隔缩略图（最多 ${GRID_COLS_TARGET} 列，自适应）`;
+    title.style.fontSize = '18px'; title.style.fontWeight = '600';
+
+    const actions = document.createElement('div');
+    const dlBtn = document.createElement('button'); dlBtn.textContent = '下载全部 (ZIP)';
+    const closeBtn = document.createElement('button'); closeBtn.textContent = '关闭';
+    for (const btn of [dlBtn, closeBtn]) {
+      Object.assign(btn.style, {
+        background: '#222', color: '#fff', border: '1px solid #444',
+        borderRadius: '10px', padding: '8px 12px', cursor: 'pointer', marginLeft: '8px'
+      });
+      btn.onmouseenter = () =&gt; btn.style.background = '#333';
+      btn.onmouseleave = () =&gt; btn.style.background = '#222';
+    }
+
+    const gridWrap = document.createElement('div');
+    Object.assign(gridWrap.style, {
+      width: '100%', maxWidth: 'min(1400px, 95vw)',
+      overflowX: 'hidden', overflowY: 'auto',
+      borderRadius: '14px', border: '1px solid #333',
+      padding: '12px', background: '#0c0c0c', boxSizing: 'border-box'
+    });
+
+    const grid = document.createElement('div');
+    grid.id = 'bili-thumb-grid';
+    Object.assign(grid.style, {
+      display: 'grid',
+      width: '100%',
+      gap: `${GAP}px`,
+      justifyItems: 'stretch',
+      alignItems: 'stretch'
+    });
+
+    // 预置占位
+    for (let i = 0; i &lt; TOTAL; i++) {
+      const cell = document.createElement('div');
+      Object.assign(cell.style, {
+        background: 'linear-gradient(135deg,#1e1e1e,#111)',
+        borderRadius: '10px', border: '1px solid #222',
+        position: 'relative', overflow: 'hidden',
+        color: '#aaa', fontSize: '12px',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        aspectRatio: '16 / 9'
+      });
+      cell.textContent = `#${i + 1}`;
+      grid.appendChild(cell);
+    }
+
+    // 自适应列数，保证不出现左右滚动
+    function updateColumns() {
+      const avail = gridWrap.clientWidth;
+      const colsFit = Math.max(1, Math.floor((avail + GAP) / (MIN_CELL_WIDTH + GAP)));
+      const cols = Math.min(GRID_COLS_TARGET, colsFit);
+      grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    }
+    const ro = new ResizeObserver(updateColumns);
+    ro.observe(gridWrap);
+    updateColumns();
+
+    actions.appendChild(dlBtn);
+    actions.appendChild(closeBtn);
+    bar.appendChild(title); bar.appendChild(actions);
+    overlay.appendChild(bar); gridWrap.appendChild(grid); overlay.appendChild(gridWrap);
+    document.body.appendChild(overlay);
+    closeBtn.onclick = () =&gt; overlay.remove();
+
+    return { overlay, grid, gridWrap, dlBtn, title };
+  }
+
+  function putIntoCell(grid, idx, src) {
+    const cell = grid.children[idx];
+    cell.textContent = '';
+    const img = document.createElement('img');
+    img.src = src;
+    Object.assign(img.style, { width: '100%', height: '100%', objectFit: 'cover', display: 'block' });
+    cell.appendChild(img);
+  }
+
+  async function downloadAsZip(images) {
+    const url = 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
+    if (!window.JSZip) {
+      await new Promise((resolve, reject) =&gt; {
+        const s = document.createElement('script');
+        s.src = url; s.onload = resolve; s.onerror = reject; document.head.appendChild(s);
+      });
+    }
+    const zip = new JSZip();
+    images.forEach((b64, i) =&gt; {
+      zip.file(`thumb_${String(i+1).padStart(2,'0')}.jpg`, b64.split(',')[1], { base64: true });
+    });
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'bilibili_thumbs_adaptive.zip';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // ========= 抓帧 =========
+  const { grid, dlBtn, title } = createOverlay();
+
+  const video = pickBestVideo();
+  if (!video) { alert('未找到可用的视频元素。请确认当前在 Bilibili 播放页。'); return; }
+
+  // 部分场景 video 元数据需要时间加载
+  if (isNaN(video.duration) || !isFinite(video.duration)) {
+    try { await waitForEvent(video, 'loadedmetadata', 10000); } catch {}
+  }
+  const duration = video.duration;
+  if (!duration || !isFinite(duration)) { alert('无法获取视频时长。'); return; }
+
+  // 计算等间隔时间点（避开绝对 0 和结尾）
+  const times = Array.from({ length: TOTAL }, (_, i) =&gt; ((i + 1) / (TOTAL + 1)) * duration);
+
+  // 画布
+  const canvas = document.createElement('canvas');
+  canvas.width = CAPTURE_WIDTH; canvas.height = CAPTURE_HEIGHT;
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+  // 记录并调整播放状态，抓帧时静音、正常倍速
+  const originalPaused = video.paused;
+  const originalTime = video.currentTime;
+  const originalMuted = video.muted;
+  const originalPlaybackRate = video.playbackRate;
+  video.muted = true; video.playbackRate = 1;
+
+  async function grabWithCanvas(t) {
+    // B 站使用 MSE/DASH，seek 后通常会触发 'seeked'
+    video.currentTime = t;
+    await waitForEvent(video, 'seeked', 15000);
+    // 等待一帧让画面稳定
+    await sleep(30);
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL('image/jpeg', 0.9);
+  }
+
+  const results = [];
+  let useCanvas = true;
+
+  // 先试一次，判断是否存在跨域/权限限制
+  try { await grabWithCanvas(times[0]); }
+  catch (e) {
+    console.warn('Canvas 抓帧失败，将降级。原因：', e);
+    useCanvas = false;
+    title.textContent += '（降级模式：受安全策略限制，无法导出图片像素）';
+  }
+
+  for (let i = 0; i &lt; times.length; i++) {
+    try {
+      const dataUrl = useCanvas ? await grabWithCanvas(times[i]) : null;
+      if (useCanvas) {
+        results.push(dataUrl);
+        putIntoCell(grid, i, dataUrl);
+      } else {
+        // 降级：无法读像素时仍显示时间标记，以占位提示
+        const cell = grid.children[i];
+        cell.textContent = `t=${Math.round(times[i])}s`;
+        cell.style.color = '#ddd'; cell.style.fontSize = '14px';
+      }
+    } catch (e) {
+      console.warn(`第 ${i + 1} 张抓取失败：`, e);
+      const cell = grid.children[i];
+      cell.textContent = '获取失败'; cell.style.color = '#f66';
+    }
+  }
+
+  // 还原播放状态
+  try {
+    video.playbackRate = originalPlaybackRate;
+    video.muted = originalMuted;
+    video.currentTime = originalTime;
+    if (!originalPaused) { await video.play().catch(() =&gt; {}); }
+  } catch {}
+
+  // ZIP
+  if (results.length === TOTAL) {
+    dlBtn.onclick = () =&gt; downloadAsZip(results);
+  } else {
+    dlBtn.disabled = true;
+    dlBtn.textContent = '下载全部 (ZIP)（不可用）';
+    dlBtn.title = '降级模式或部分抓帧失败时不可导出 ZIP';
+  }
+})();
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseModernSyntax</key>
+						<false/>
+						<key>UseText</key>
+						<true/>
+						<key>WebBrowser</key>
+						<string>Safari</string>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>780288932.22177505</real>
+				<key>CustomIconData</key>
+				<data>
+				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
+				FwAEAAAAAQAACSgBHAADAAAAAQABAAABKAADAAAAAQAC
+				AAABPQADAAAAAQACAAABUgADAAAAAQABAAABUwADAAAA
+				BAAACgqHcwAHAAAHyAAAChIAABbyAAgACAAIAAgAAQAB
+				AAEAAQAAB8hhcHBsAiAAAG1udHJSR0IgWFlaIAfZAAIA
+				GQALABoAC2Fjc3BBUFBMAAAAAGFwcGwAAAAAAAAAAAAA
+				AAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAC2Rlc2MAAAEIAAAAb2RzY20AAAF4AAAFimNwcnQA
+				AAcEAAAAOHd0cHQAAAc8AAAAFHJYWVoAAAdQAAAAFGdY
+				WVoAAAdkAAAAFGJYWVoAAAd4AAAAFHJUUkMAAAeMAAAA
+				DmNoYWQAAAecAAAALGJUUkMAAAeMAAAADmdUUkMAAAeM
+				AAAADmRlc2MAAAAAAAAAFEdlbmVyaWMgUkdCIFByb2Zp
+				bGUAAAAAAAAAAAAAABRHZW5lcmljIFJHQiBQcm9maWxl
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAM
+				c2tTSwAAACgAAAGEZGFESwAAACQAAAGsY2FFUwAAACQA
+				AAHQdmlWTgAAACQAAAH0cHRCUgAAACYAAAIYdWtVQQAA
+				ACoAAAI+ZnJGVQAAACgAAAJoaHVIVQAAACgAAAKQemhU
+				VwAAABIAAAK4a29LUgAAABYAAALKbmJOTwAAACYAAALg
+				Y3NDWgAAACIAAAMGaGVJTAAAAB4AAAMocm9STwAAACQA
+				AANGZGVERQAAACwAAANqaXRJVAAAACgAAAOWc3ZTRQAA
+				ACYAAALgemhDTgAAABIAAAO+amFKUAAAABoAAAPQZWxH
+				UgAAACIAAAPqcHRQTwAAACYAAAQMbmxOTAAAACgAAAQy
+				ZXNFUwAAACYAAAQMdGhUSAAAACQAAARadHJUUgAAACIA
+				AAR+ZmlGSQAAACgAAASgaHJIUgAAACgAAATIcGxQTAAA
+				ACwAAATwcnVSVQAAACIAAAUcZW5VUwAAACYAAAU+YXJF
+				RwAAACYAAAVkAFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBH
+				AEIAIABwAHIAbwBmAGkAbABHAGUAbgBlAHIAZQBsACAA
+				UgBHAEIALQBwAHIAbwBmAGkAbABQAGUAcgBmAGkAbAAg
+				AFIARwBCACAAZwBlAG4A6AByAGkAYwBDHqUAdQAgAGgA
+				7ABuAGgAIABSAEcAQgAgAEMAaAB1AG4AZwBQAGUAcgBm
+				AGkAbAAgAFIARwBCACAARwBlAG4A6QByAGkAYwBvBBcE
+				MAQzBDAEOwRMBD0EOAQ5ACAEPwRABD4ERAQwBDkEOwAg
+				AFIARwBCAFAAcgBvAGYAaQBsACAAZwDpAG4A6QByAGkA
+				cQB1AGUAIABSAFYAQgDBAGwAdABhAGwA4QBuAG8AcwAg
+				AFIARwBCACAAcAByAG8AZgBpAGyQGnUoAFIARwBCgnJf
+				aWPPj/DHfLwYACAAUgBHAEIAINUEuFzTDMd8AEcAZQBu
+				AGUAcgBpAHMAawAgAFIARwBCAC0AcAByAG8AZgBpAGwA
+				TwBiAGUAYwBuAP0AIABSAEcAQgAgAHAAcgBvAGYAaQBs
+				BeQF6AXVBeQF2QXcACAAUgBHAEIAIAXbBdwF3AXZAFAA
+				cgBvAGYAaQBsACAAUgBHAEIAIABnAGUAbgBlAHIAaQBj
+				AEEAbABsAGcAZQBtAGUAaQBuAGUAcwAgAFIARwBCAC0A
+				UAByAG8AZgBpAGwAUAByAG8AZgBpAGwAbwAgAFIARwBC
+				ACAAZwBlAG4AZQByAGkAYwBvZm6QGgBSAEcAQmPPj/Bl
+				h072TgCCLAAgAFIARwBCACAw1zDtMNUwoTCkMOsDkwO1
+				A70DuQO6A8wAIAPAA8EDvwPGA68DuwAgAFIARwBCAFAA
+				ZQByAGYAaQBsACAAUgBHAEIAIABnAGUAbgDpAHIAaQBj
+				AG8AQQBsAGcAZQBtAGUAZQBuACAAUgBHAEIALQBwAHIA
+				bwBmAGkAZQBsDkIOGw4jDkQOHw4lDkwAIABSAEcAQgAg
+				DhcOMQ5IDicORA4bAEcAZQBuAGUAbAAgAFIARwBCACAA
+				UAByAG8AZgBpAGwAaQBZAGwAZQBpAG4AZQBuACAAUgBH
+				AEIALQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkB
+				DQBrAGkAIABSAEcAQgAgAHAAcgBvAGYAaQBsAFUAbgBp
+				AHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAA
+				UgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4BDsETAAg
+				AFIARwBCAEcAZQBuAGUAcgBpAGMAIABSAEcAQgAgAFAA
+				cgBvAGYAaQBsAGUGRQZEBkEAIAYqBjkGMQZKBkEAIABS
+				AEcAQgAgBicGRAY5BicGRQAAdGV4dAAAAABDb3B5cmln
+				aHQgMjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJl
+				c2VydmVkLgBYWVogAAAAAAAA81IAAQAAAAEWz1hZWiAA
+				AAAAAAB0TQAAPe4AAAPQWFlaIAAAAAAAAFp1AACscwAA
+				FzRYWVogAAAAAAAAKBoAABWfAAC4NmN1cnYAAAAAAAAA
+				AQHNAABzZjMyAAAAAAABDEIAAAXe///zJgAAB5IAAP2R
+				///7ov///aMAAAPcAADAbIAAQCAACDwaAggAgEAIWAId
+				D4hEYlE4pFYtF4xGY1Dn+/wA/ni85AEAeAgiuVME2CFw
+				oAgs/X8AI9G5pNZtN41Coc8Hi/nkSC07h+EoSE2cuQq1
+				w0GAEFX6/ZxUalU5pOgA7ne/nmMiO7BRRAEE2Wtwq1A0
+				FwEGKfVLZbbdVnc8H88BqSXYK7BYrJZrRaqhbsBgZrcL
+				ldLteKLY7LZ7Ta8Fj8hFMJc7rd7zir5jb/kc5kcnhsti
+				b3jL9ndNj8/lcRYcxpMdp9hbNTh8vo77r9juZxs9DrNt
+				mt1wZvvNXesXt83wuVGOJtePwOX0YtzdFz9LugGA4d2Y
+				HEH4/I8/pjFYFDgKBIH2Yk/L++33M4n1N91txnKs43NU
+				HJ+YiIxAAgAAslqPvG86HH0faHGaaUEm4cB+AAAj0AAF
+				ISwAF4VQAf7xpghz5OMzLrtMBYEoGP5GnmABBEfFKIE0
+				RYIAAMYsAUADvo8cBxqgNI9HiABgGKfKPvgh4DgMgYqi
+				YBAAEcQAHgABgFu6h64so2jqxC+rIxIgZAEdFJAy+iJN
+				xhGQsxqeh7I8JgvHcABhGRISIKs8SLDHM4AEwREYn28C
+				rsK1TnSy5LOS4AEvTBMSITJGIyC8BYAGHIIAB+KZ2Jkm
+				YZBaAoAEoQsnnkeiPDcPkfAoCSFkOPIHAAGwYU4+EqtA
+				4rWuQ2FDUQAEwxah9GAAMgv0gV5ZnuAApDHNyIDaMNIE
+				kR8YgAeqPG4b8IAikoAAeByFnyfSPQ/WroRHEtDzFXcx
+				zKMguxqZRmQSHQnnWADHVOhZCjxVgqCXJYJVQAB8nwjz
+				volcDfxEztcXNRVezLO8anxgIACoMx3gAWxfHwisKwAM
+				ArRqLoqRqCoJ24fNvobWVAyw11CS3clc3PRcyjFGgAPc
+				jx0HWmIyjqeAAF2YU5IuE4RwASRByeIQdgPm0/ZTK750
+				HW+X4VXiHV9mkanviMJIc9yHFaWuMk2Ux6gAYpln0itr
+				oWXxVgmAAWBPTh0nYftZ0Fli2qtKcOgBhNE6sAGsZrra
+				PAMAruu6AaGnxk0fmPtQ+ESeQAGeakEogN4yAYABIEFV
+				hynPu+VajvSogSBCB5ymKno8ljtANplDkZwN0Rjh1MIc
+				YJkbUAtOAAHYaAMAGII8BKDgAYhjSFStLzqAAlCHJZZl
+				ACQAHQdW7hpqEQdOnBbl/IQ/EXyoNgw7RRkkCIAAQA6B
+				iwNU3FyYGhIcWBPeuIgf6YO5BuVE4KYeyAUBidEajEHA
+				MniEQEoKBswexEOVI6Q4LATwEgAFMJZ9g5x0Pbe6uFg5
+				Fjyr/W8AAHgUFLjWG0hAiAHAMnad+QMb44oWEPAuBUhY
+				yxbAVAABQCJCwqBnYqLYXrGSIHqAA0RADAwADaG9DUiQ
+				phKvsgrBccw6XSQfYMlojDiCBjLGg2oLob2fDeHDFAio
+				ClyCWEMk8LYU0ao3AAPIeZHg3h+R8KkWSxYJkZAIdoAD
+				m3OiEDsA0iI7VARaPoy0miRiBjkg6AAVaxAAILQSggjw
+				IwPoACkEpJYNQXvEW6kQAESEpjCGS2oXQwUhQzKgfCTR
+				2gkhCSWDsGrxI5Qjaeb0CYzSkDWMYS+RhNzuAAANAsj5
+				HCHgBIaP2FkmCMpTmOQMAUgENkSmYQ6ZyBz3kRMmPIGZ
+				XQUtsAk24CgxgMAWACBeLhbkpkQlIYKd5D54kVKsO8eI
+				/x4hCCqO0HBOimqoAtNWbM9TpUHIIQ48RHR2DtH8OogI
+				ABEBAAADAAAAAQAgAAABAQADAAAAAQAgAAABAgADAAAA
+				BAAAF8QBAwADAAAAAQAFAAABBgADAAAAAQACAAABCgAD
+				AAAAAQABAAABEQAEAAAAAQAAEdoBEgADAAAAAQABAAAB
+				FQADAAAAAQAEAAABFgADAAAAAQAgAAABFwAEAAAAAQAA
+				BRgBHAADAAAAAQABAAABKAADAAAAAQACAAABPQADAAAA
+				AQACAAABUgADAAAAAQABAAABUwADAAAABAAAF8yHcwAH
+				AAAHyAAAF9QAACHEAAgACAAIAAgAAQABAAEAAQAAB8hh
+				cHBsAiAAAG1udHJSR0IgWFlaIAfZAAIAGQALABoAC2Fj
+				c3BBUFBMAAAAAGFwcGwAAAAAAAAAAAAAAAAAAAAAAAD2
+				1gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2Rlc2MA
+				AAEIAAAAb2RzY20AAAF4AAAFimNwcnQAAAcEAAAAOHd0
+				cHQAAAc8AAAAFHJYWVoAAAdQAAAAFGdYWVoAAAdkAAAA
+				FGJYWVoAAAd4AAAAFHJUUkMAAAeMAAAADmNoYWQAAAec
+				AAAALGJUUkMAAAeMAAAADmdUUkMAAAeMAAAADmRlc2MA
+				AAAAAAAAFEdlbmVyaWMgUkdCIFByb2ZpbGUAAAAAAAAA
+				AAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAACgA
+				AAGEZGFESwAAACQAAAGsY2FFUwAAACQAAAHQdmlWTgAA
+				ACQAAAH0cHRCUgAAACYAAAIYdWtVQQAAACoAAAI+ZnJG
+				VQAAACgAAAJoaHVIVQAAACgAAAKQemhUVwAAABIAAAK4
+				a29LUgAAABYAAALKbmJOTwAAACYAAALgY3NDWgAAACIA
+				AAMGaGVJTAAAAB4AAAMocm9STwAAACQAAANGZGVERQAA
+				ACwAAANqaXRJVAAAACgAAAOWc3ZTRQAAACYAAALgemhD
+				TgAAABIAAAO+amFKUAAAABoAAAPQZWxHUgAAACIAAAPq
+				cHRQTwAAACYAAAQMbmxOTAAAACgAAAQyZXNFUwAAACYA
+				AAQMdGhUSAAAACQAAARadHJUUgAAACIAAAR+ZmlGSQAA
+				ACgAAASgaHJIUgAAACgAAATIcGxQTAAAACwAAATwcnVS
+				VQAAACIAAAUcZW5VUwAAACYAAAU+YXJFRwAAACYAAAVk
+				AFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIA
+				bwBmAGkAbABHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBw
+				AHIAbwBmAGkAbABQAGUAcgBmAGkAbAAgAFIARwBCACAA
+				ZwBlAG4A6AByAGkAYwBDHqUAdQAgAGgA7ABuAGgAIABS
+				AEcAQgAgAEMAaAB1AG4AZwBQAGUAcgBmAGkAbAAgAFIA
+				RwBCACAARwBlAG4A6QByAGkAYwBvBBcEMAQzBDAEOwRM
+				BD0EOAQ5ACAEPwRABD4ERAQwBDkEOwAgAFIARwBCAFAA
+				cgBvAGYAaQBsACAAZwDpAG4A6QByAGkAcQB1AGUAIABS
+				AFYAQgDBAGwAdABhAGwA4QBuAG8AcwAgAFIARwBCACAA
+				cAByAG8AZgBpAGyQGnUoAFIARwBCgnJfaWPPj/DHfLwY
+				ACAAUgBHAEIAINUEuFzTDMd8AEcAZQBuAGUAcgBpAHMA
+				awAgAFIARwBCAC0AcAByAG8AZgBpAGwATwBiAGUAYwBu
+				AP0AIABSAEcAQgAgAHAAcgBvAGYAaQBsBeQF6AXVBeQF
+				2QXcACAAUgBHAEIAIAXbBdwF3AXZAFAAcgBvAGYAaQBs
+				ACAAUgBHAEIAIABnAGUAbgBlAHIAaQBjAEEAbABsAGcA
+				ZQBtAGUAaQBuAGUAcwAgAFIARwBCAC0AUAByAG8AZgBp
+				AGwAUAByAG8AZgBpAGwAbwAgAFIARwBCACAAZwBlAG4A
+				ZQByAGkAYwBvZm6QGgBSAEcAQmPPj/Blh072TgCCLAAg
+				AFIARwBCACAw1zDtMNUwoTCkMOsDkwO1A70DuQO6A8wA
+				IAPAA8EDvwPGA68DuwAgAFIARwBCAFAAZQByAGYAaQBs
+				ACAAUgBHAEIAIABnAGUAbgDpAHIAaQBjAG8AQQBsAGcA
+				ZQBtAGUAZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAZQBs
+				DkIOGw4jDkQOHw4lDkwAIABSAEcAQgAgDhcOMQ5IDicO
+				RA4bAEcAZQBuAGUAbAAgAFIARwBCACAAUAByAG8AZgBp
+				AGwAaQBZAGwAZQBpAG4AZQBuACAAUgBHAEIALQBwAHIA
+				bwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkAIABS
+				AEcAQgAgAHAAcgBvAGYAaQBsAFUAbgBpAHcAZQByAHMA
+				YQBsAG4AeQAgAHAAcgBvAGYAaQBsACAAUgBHAEIEHgQx
+				BEkEOAQ5ACAEPwRABD4ERAQ4BDsETAAgAFIARwBCAEcA
+				ZQBuAGUAcgBpAGMAIABSAEcAQgAgAFAAcgBvAGYAaQBs
+				AGUGRQZEBkEAIAYqBjkGMQZKBkEAIABSAEcAQgAgBicG
+				RAY5BicGRQAAdGV4dAAAAABDb3B5cmlnaHQgMjAwNyBB
+				cHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJlc2VydmVkLgBY
+				WVogAAAAAAAA81IAAQAAAAEWz1hZWiAAAAAAAAB0TQAA
+				Pe4AAAPQWFlaIAAAAAAAAFp1AACscwAAFzRYWVogAAAA
+				AAAAKBoAABWfAAC4NmN1cnYAAAAAAAAAAQHNAABzZjMy
+				AAAAAAABDEIAAAXe///zJgAAB5IAAP2R///7ov///aMA
+				AAPcAADAbIAEQeAgkMRYBRk/3+AIWAIdD4hEYlE4pEwC
+				AQAAWi1n2zyEOwORF0pwku34/IrKZVK4gBQNGCUXHaSy
+				COgOQ1upAkvH4/ZZP6BLQLGCaX3aSprN5zO57QadLALQ
+				wBRaPSZxOp5PqfW4pUaJRqRNqvTK1XLND69U7BVqXWae
+				B5fEXy+oWBriAwFEn0+4WAgFX6rYrbTZYAwHGEon3qAA
+				QB4caC+CwAt16+AAolW9wAEwjeTYYckKBMBAAS5lYaVW
+				MJKwNUh8UnYAAkELyk0KDwALyI6gAPxzjnM6J8ViaCQA
+				dzaDAASCzgdTZJ/rYwRebm86AD2buUMyQ6wAkUFuC6VA
+				UAAYCoxDbVzrHbpZ0gB1HaAAeDYwqk2EgAaju8AATxUH
+				s3IVAKABDDwBzliExwki29jBrKh7DIcAoCIwwyMCEKzY
+				gUBCMFoUgJgAfi+AAYZkn0ABAkceYAI2fYAGkXgKgAM4
+				7Hg1D2sJCYAG8cKfEuUTFuI4wyDo/wbhkAwAC8KjjEsU
+				LFkAOUEl0YTLDqQZ5AAaZegs45DHkmjBNUrQCNIABtG8
+				nwsDQdwAHAcifNmvJRkmCIAAiByMDAOL/G4cCUL8hwti
+				i8pHvCAAnrAj6Ql2VAJpMsqGzOhx6Hqhc4pQCoJgGAAM
+				AqvKIHufCFx8ny4IcEQPtIAcLOWLR2CYzgBAmGgXgKGy
+				FJSi6HQwAJ/H8hVgolXoAV+hiHJ6hVjGaaR9mYgIAAAR
+				AQAAAwAAAAEAEAAAAQEAAwAAAAEAEAAAAQIAAwAAAAQA
+				ACKWAQMAAwAAAAEABQAAAQYAAwAAAAEAAgAAAQoAAwAA
+				AAEAAQAAAREABAAAAAEAAB+cARIAAwAAAAEAAQAAARUA
+				AwAAAAEABAAAARYAAwAAAAEAEAAAARcABAAAAAEAAAIn
+				ARwAAwAAAAEAAQAAASgAAwAAAAEAAgAAAT0AAwAAAAEA
+				AgAAAVIAAwAAAAEAAQAAAVMAAwAAAAQAACKeh3MABwAA
+				B8gAACKmAAAAAAAIAAgACAAIAAEAAQABAAEAAAfIYXBw
+				bAIgAABtbnRyUkdCIFhZWiAH2QACABkACwAaAAthY3Nw
+				QVBQTAAAAABhcHBsAAAAAAAAAAAAAAAAAAAAAAAA9tYA
+				AQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAAB
+				CAAAAG9kc2NtAAABeAAABYpjcHJ0AAAHBAAAADh3dHB0
+				AAAHPAAAABRyWFlaAAAHUAAAABRnWFlaAAAHZAAAABRi
+				WFlaAAAHeAAAABRyVFJDAAAHjAAAAA5jaGFkAAAHnAAA
+				ACxiVFJDAAAHjAAAAA5nVFJDAAAHjAAAAA5kZXNjAAAA
+				AAAAABRHZW5lcmljIFJHQiBQcm9maWxlAAAAAAAAAAAA
+				AAAUR2VuZXJpYyBSR0IgUHJvZmlsZQAAAAAAAAAAAAAA
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				AAAAAAAAbWx1YwAAAAAAAAAfAAAADHNrU0sAAAAoAAAB
+				hGRhREsAAAAkAAABrGNhRVMAAAAkAAAB0HZpVk4AAAAk
+				AAAB9HB0QlIAAAAmAAACGHVrVUEAAAAqAAACPmZyRlUA
+				AAAoAAACaGh1SFUAAAAoAAACkHpoVFcAAAASAAACuGtv
+				S1IAAAAWAAACym5iTk8AAAAmAAAC4GNzQ1oAAAAiAAAD
+				BmhlSUwAAAAeAAADKHJvUk8AAAAkAAADRmRlREUAAAAs
+				AAADaml0SVQAAAAoAAADlnN2U0UAAAAmAAAC4HpoQ04A
+				AAASAAADvmphSlAAAAAaAAAD0GVsR1IAAAAiAAAD6nB0
+				UE8AAAAmAAAEDG5sTkwAAAAoAAAEMmVzRVMAAAAmAAAE
+				DHRoVEgAAAAkAAAEWnRyVFIAAAAiAAAEfmZpRkkAAAAo
+				AAAEoGhySFIAAAAoAAAEyHBsUEwAAAAsAAAE8HJ1UlUA
+				AAAiAAAFHGVuVVMAAAAmAAAFPmFyRUcAAAAmAAAFZABW
+				AWEAZQBvAGIAZQBjAG4A/QAgAFIARwBCACAAcAByAG8A
+				ZgBpAGwARwBlAG4AZQByAGUAbAAgAFIARwBCAC0AcABy
+				AG8AZgBpAGwAUABlAHIAZgBpAGwAIABSAEcAQgAgAGcA
+				ZQBuAOgAcgBpAGMAQx6lAHUAIABoAOwAbgBoACAAUgBH
+				AEIAIABDAGgAdQBuAGcAUABlAHIAZgBpAGwAIABSAEcA
+				QgAgAEcAZQBuAOkAcgBpAGMAbwQXBDAEMwQwBDsETAQ9
+				BDgEOQAgBD8EQAQ+BEQEMAQ5BDsAIABSAEcAQgBQAHIA
+				bwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAAUgBW
+				AEIAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAA
+				cgBvAGYAaQBskBp1KABSAEcAQoJyX2ljz4/wx3y8GAAg
+				AFIARwBCACDVBLhc0wzHfABHAGUAbgBlAHIAaQBzAGsA
+				IABSAEcAQgAtAHAAcgBvAGYAaQBsAE8AYgBlAGMAbgD9
+				ACAAUgBHAEIAIABwAHIAbwBmAGkAbAXkBegF1QXkBdkF
+				3AAgAFIARwBCACAF2wXcBdwF2QBQAHIAbwBmAGkAbAAg
+				AFIARwBCACAAZwBlAG4AZQByAGkAYwBBAGwAbABnAGUA
+				bQBlAGkAbgBlAHMAIABSAEcAQgAtAFAAcgBvAGYAaQBs
+				AFAAcgBvAGYAaQBsAG8AIABSAEcAQgAgAGcAZQBuAGUA
+				cgBpAGMAb2ZukBoAUgBHAEJjz4/wZYdO9k4AgiwAIABS
+				AEcAQgAgMNcw7TDVMKEwpDDrA5MDtQO9A7kDugPMACAD
+				wAPBA78DxgOvA7sAIABSAEcAQgBQAGUAcgBmAGkAbAAg
+				AFIARwBCACAAZwBlAG4A6QByAGkAYwBvAEEAbABnAGUA
+				bQBlAGUAbgAgAFIARwBCAC0AcAByAG8AZgBpAGUAbA5C
+				DhsOIw5EDh8OJQ5MACAAUgBHAEIAIA4XDjEOSA4nDkQO
+				GwBHAGUAbgBlAGwAIABSAEcAQgAgAFAAcgBvAGYAaQBs
+				AGkAWQBsAGUAaQBuAGUAbgAgAFIARwBCAC0AcAByAG8A
+				ZgBpAGkAbABpAEcAZQBuAGUAcgBpAQ0AawBpACAAUgBH
+				AEIAIABwAHIAbwBmAGkAbABVAG4AaQB3AGUAcgBzAGEA
+				bABuAHkAIABwAHIAbwBmAGkAbAAgAFIARwBCBB4EMQRJ
+				BDgEOQAgBD8EQAQ+BEQEOAQ7BEwAIABSAEcAQgBHAGUA
+				bgBlAHIAaQBjACAAUgBHAEIAIABQAHIAbwBmAGkAbABl
+				BkUGRAZBACAGKgY5BjEGSgZBACAAUgBHAEIAIAYnBkQG
+				OQYnBkUAAHRleHQAAAAAQ29weXJpZ2h0IDIwMDcgQXBw
+				bGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFla
+				IAAAAAAAAPNSAAEAAAABFs9YWVogAAAAAAAAdE0AAD3u
+				AAAD0FhZWiAAAAAAAABadQAArHMAABc0WFlaIAAAAAAA
+				ACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEBzQAAc2YzMgAA
+				AAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L///2jAAAD
+				3AAAwGw=
+				</data>
+				<key>ModificationDate</key>
+				<real>780289284.70028305</real>
+				<key>Name</key>
+				<string>js Bilibili Thumbnails Grid</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>40</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>0B3EFDE4-9E30-4ED4-AEAD-318B329F272A</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Safari</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.apple.Safari</string>
+					<key>Name</key>
+					<string>Safari</string>
+					<key>NewFile</key>
+					<string>/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>0449FA16-5FE6-4802-B915-A7DDE9E5F4C5</string>
+		<key>UID</key>
+		<string>6A30933E-ECBB-4433-8DF0-7DB248CBFB79</string>
+	</dict>
+</array>
+</plist>

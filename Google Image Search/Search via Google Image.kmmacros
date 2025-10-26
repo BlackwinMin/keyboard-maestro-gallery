@@ -29,7 +29,7 @@
 									<key>TextConditionType</key>
 									<string>Matches</string>
 									<key>TextValue</key>
-									<string>jpg|jpeg|png|gif|avif|webp$</string>
+									<string>jpg|jpeg|png|gif|avif|webp|JPG|JPEG|PNG|GIF|AVIF|WEBP$</string>
 								</dict>
 							</array>
 							<key>ConditionListMatch</key>
@@ -197,7 +197,7 @@
 								<key>MacroActionType</key>
 								<string>Pause</string>
 								<key>Time</key>
-								<string>0.1</string>
+								<string>0.3</string>
 								<key>TimeOutAbortsMacro</key>
 								<true/>
 							</dict>
@@ -587,7 +587,7 @@
 				AAD9kf//+6L///2jAAAD3AAAwGw=
 				</data>
 				<key>ModificationDate</key>
-				<real>782633406.56425202</real>
+				<real>783144789.41741097</real>
 				<key>Name</key>
 				<string>Search via Google Image</string>
 				<key>Triggers</key>

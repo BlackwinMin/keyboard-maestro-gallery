@@ -18,7 +18,7 @@
 		<key>IsActive</key>
 		<false/>
 		<key>KeyCode</key>
-		<integer>32767</integer>
+		<integer>35</integer>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -182,7 +182,7 @@
 			</dict>
 		</array>
 		<key>Modifiers</key>
-		<integer>0</integer>
+		<integer>6912</integer>
 		<key>Name</key>
 		<string>Microsoft Paltte</string>
 		<key>PaletteUnderMouse</key>
@@ -235,7 +235,7 @@
 		<key>IsActive</key>
 		<false/>
 		<key>KeyCode</key>
-		<integer>32767</integer>
+		<integer>35</integer>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -324,11 +324,11 @@
 							</dict>
 							<dict>
 								<key>ActionUID</key>
-								<integer>12631123</integer>
+								<integer>12631125</integer>
 								<key>IsDisclosed</key>
 								<false/>
 								<key>MacroAction</key>
-								<string>Unmark</string>
+								<string>Mark</string>
 								<key>MacroActionType</key>
 								<string>MarkMacro</string>
 								<key>MacroUID</key>
@@ -369,11 +369,11 @@
 							</dict>
 							<dict>
 								<key>ActionUID</key>
-								<integer>12631125</integer>
+								<integer>12631123</integer>
 								<key>IsDisclosed</key>
 								<false/>
 								<key>MacroAction</key>
-								<string>Mark</string>
+								<string>Unmark</string>
 								<key>MacroActionType</key>
 								<string>MarkMacro</string>
 								<key>MacroUID</key>
@@ -389,7 +389,7 @@
 				<key>CustomIconData</key>
 				<string>KMEP-GoogleChrome</string>
 				<key>ModificationDate</key>
-				<real>768298057.21631002</real>
+				<real>783313727.90879405</real>
 				<key>Name</key>
 				<string>审阅 - 批注</string>
 				<key>Triggers</key>
@@ -399,7 +399,7 @@
 			</dict>
 		</array>
 		<key>Modifiers</key>
-		<integer>0</integer>
+		<integer>6912</integer>
 		<key>Name</key>
 		<string>Microsoft Paltte</string>
 		<key>PaletteUnderMouse</key>
@@ -452,7 +452,7 @@
 		<key>IsActive</key>
 		<false/>
 		<key>KeyCode</key>
-		<integer>32767</integer>
+		<integer>35</integer>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -622,7 +622,7 @@ end tell</string>
 			</dict>
 		</array>
 		<key>Modifiers</key>
-		<integer>0</integer>
+		<integer>6912</integer>
 		<key>Name</key>
 		<string>Microsoft Paltte</string>
 		<key>PaletteUnderMouse</key>
@@ -675,7 +675,7 @@ end tell</string>
 		<key>IsActive</key>
 		<false/>
 		<key>KeyCode</key>
-		<integer>32767</integer>
+		<integer>35</integer>
 		<key>Macros</key>
 		<array>
 			<dict>
@@ -839,7 +839,7 @@ end tell</string>
 			</dict>
 		</array>
 		<key>Modifiers</key>
-		<integer>0</integer>
+		<integer>6912</integer>
 		<key>Name</key>
 		<string>Microsoft Paltte</string>
 		<key>PaletteUnderMouse</key>

@@ -2,6 +2,6 @@
 
 在 Finder 中执行撤销操作前弹出提示，显示待撤销的具体内容，避免误操作。
 
-出处：《给 Finder 的撤销操作加个提示》，发布时间未定。
+出处：[《给 Finder 的撤销操作加个提示》](https://utgd.net/article/21283)。
 
 ![img](img.png)

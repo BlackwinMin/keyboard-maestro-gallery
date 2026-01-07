@@ -7,6 +7,6 @@
 - `⌘Command-3`：显示或隐藏书签
 - `⌘Command-4`：显示或隐藏批注
 
-出处：《用 Keyboard Maestro 掌控 PDF 阅读视图》（发布时间未定）。
+出处：[《用 Keyboard Maestro 掌控 PDF 阅读视图》](https://utgd.net/article/21166/)。
 
 ![img](img.gif)

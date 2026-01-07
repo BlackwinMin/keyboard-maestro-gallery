@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>633707084.37810504</real>
+		<key>CustomIconData</key>
+		<string>KMEP-GenericApplication-/Applications/DEVONthink 3.app</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionName</key>
+						<string>Execute AppleScript (feedURL)</string>
+						<key>ActionUID</key>
+						<integer>68979</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>tell application "DEVONthink 3"	set theSelection to the selected records	repeat with this_record in theSelection		set feedURL to (URL of this_record as string)	end repeatend telltell application "Keyboard Maestro Engine"	setvariable "t1" to feedURLend tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionName</key>
+						<string>Execute AppleScript (get feedName)</string>
+						<key>ActionUID</key>
+						<integer>68978</integer>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>tell application "DEVONthink 3"	set theSelection to the selected records	repeat with this_record in theSelection		set feedName to (name of this_record as string)	end repeatend telltell application "Keyboard Maestro Engine"	setvariable "t" to feedNameend tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>68975</integer>
+						<key>Buttons</key>
+						<array>
+							<dict>
+								<key>Button</key>
+								<string>OK</string>
+							</dict>
+							<dict>
+								<key>Button</key>
+								<string>Cancel</string>
+								<key>Cancel</key>
+								<true/>
+							</dict>
+						</array>
+						<key>MacroActionType</key>
+						<string>PromptForUserInput</string>
+						<key>Prompt</key>
+						<string></string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>Title</key>
+						<string>请确认标题、链接和标签</string>
+						<key>Variables</key>
+						<array>
+							<dict>
+								<key>Default</key>
+								<string>%Variable%t%</string>
+								<key>Type</key>
+								<string>Automatic</string>
+								<key>Variable</key>
+								<string>t</string>
+							</dict>
+							<dict>
+								<key>Default</key>
+								<string>%Variable%t1%</string>
+								<key>Type</key>
+								<string>Automatic</string>
+								<key>Variable</key>
+								<string>t1</string>
+							</dict>
+							<dict>
+								<key>Default</key>
+								<string>%Variable%t2%</string>
+								<key>Type</key>
+								<string>Automatic</string>
+								<key>Variable</key>
+								<string>t2</string>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>68976</integer>
+						<key>Append</key>
+						<true/>
+						<key>Destination</key>
+						<string>/Users/Min/Library/Mobile Documents/iCloud~is~workflow~my~workflows/Documents/articles.txt</string>
+						<key>Encoding</key>
+						<string>UTF8</string>
+						<key>Format</key>
+						<string>PlainText</string>
+						<key>Format2</key>
+						<string>PlainText</string>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>WriteFile</string>
+						<key>Source</key>
+						<string>Text</string>
+						<key>Text</key>
+						<string>[%Variable%t%](%Variable%t1%)%Variable%t2%
+</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>68977</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Notification</string>
+						<key>SoundName</key>
+						<string></string>
+						<key>Subtitle</key>
+						<string>%Variable%t%</string>
+						<key>Text</key>
+						<string>tags: %Variable%t2%</string>
+						<key>Title</key>
+						<string>Artcile Indexed :D</string>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>691650712.50527894</real>
+				<key>CustomIconData</key>
+				<string>KMEC=Rounded=KMCOLOR:254,204,102,255=★=82=0=4=0=KMCOLOR:255,255,255,255</string>
+				<key>ModificationDate</key>
+				<real>789472689.22653306</real>
+				<key>Name</key>
+				<string>Artcile Index</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>2</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>A3083EA3-1E37-4AD6-8B66-77213437949C</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>DEVONthink</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>BundleIdentifier</key>
+					<string>com.devon-technologies.think3</string>
+					<key>Name</key>
+					<string>DEVONthink 3</string>
+					<key>NewFile</key>
+					<string>/Applications/DEVONthink 3.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>ToggleMacroUID</key>
+		<string>61D79DA8-8D7A-4AFA-B9A7-3C2467A44083</string>
+		<key>UID</key>
+		<string>EDB9A3E6-3516-435F-A411-A9E021FDF4B8</string>
+	</dict>
+</array>
+</plist>

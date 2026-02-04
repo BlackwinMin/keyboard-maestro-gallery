@@ -4,6 +4,6 @@
 
 需同时安装主 Macro 和 Helper Macro，平时请保持 Helper 禁用，交由主 Macro 调用。
 
-出处：《以脑筋正常的方式关闭 Finder 显示方式窗口》，发布时间未定。
+出处：[《以脑筋正常的方式关闭 Finder 显示方式窗口》](https://utgd.net/article/21287/)。
 
 ![img](img.gif)

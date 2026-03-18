@@ -4,6 +4,6 @@
 
 支持所有的 AirPods，理论上只要是蓝牙耳机都可以，但如果自定义过耳机名称，需要在条件判断中相应调整。
 
-出处：《戴上 AirPods 耳机时自动提示剩余电量（macOS）》，发布时间未定。
+出处：[《戴上 AirPods 耳机时自动提示剩余电量（macOS）》](https://utgd.net/article/21310)。
 
 ![img](img.gif)

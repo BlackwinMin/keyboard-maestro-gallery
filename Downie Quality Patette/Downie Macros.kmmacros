@@ -80,9 +80,9 @@
 				<key>CustomIconData</key>
 				<string>KMEP-GenericApplication</string>
 				<key>ModificationDate</key>
-				<real>780212009.23969305</real>
+				<real>795535423.60208297</real>
 				<key>Name</key>
-				<string>Limmit to 1080p</string>
+				<string>Limit to 1080p</string>
 				<key>Triggers</key>
 				<array/>
 				<key>UID</key>
@@ -194,9 +194,9 @@
 				<key>CustomIconData</key>
 				<string>KMEP-GenericApplication</string>
 				<key>ModificationDate</key>
-				<real>780211997.04028404</real>
+				<real>795535421.806162</real>
 				<key>Name</key>
-				<string>Limmit to 720p</string>
+				<string>Limit to 720p</string>
 				<key>Triggers</key>
 				<array/>
 				<key>UID</key>
@@ -308,9 +308,9 @@
 				<key>CustomIconData</key>
 				<string>KMEP-GenericApplication</string>
 				<key>ModificationDate</key>
-				<real>780211980.79452205</real>
+				<real>795535419.18328404</real>
 				<key>Name</key>
-				<string>Limmit to 480p</string>
+				<string>Limit to 480p</string>
 				<key>Triggers</key>
 				<array/>
 				<key>UID</key>

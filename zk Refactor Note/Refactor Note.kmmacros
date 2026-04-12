@@ -28,7 +28,7 @@
 						cnRmZAAAAAADAAAAAgAAAAcAAABU
 						WFQucnRmAQAAAC4vAgAAKwAAAAEA
 						AAAnAgAAe1xydGYxXGFuc2lcYW5z
-						aWNwZzEyNTJcY29jb2FydGYyNzA4
+						aWNwZzEyNTJcY29jb2FydGYyODIy
 						Clxjb2NvYXRleHRzY2FsaW5nMFxj
 						b2NvYXBsYXRmb3JtMHtcZm9udHRi
 						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
@@ -46,7 +46,7 @@
 						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
 						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
 						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
-						MjMgTWluamEgQWxsIHJpZ2h0cyBy
+						MjYgTWluamEgQWxsIHJpZ2h0cyBy
 						ZXNlcnZlZFwKTElDRU5TRTogR05V
 						IEdQTHYzXApBcnRpY2xlczogaHR0
 						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
@@ -54,15 +54,67 @@
 						b20vbWluamFfcmluXApHaXRIdWI6
 						IGh0dHBzOi8vZ2l0aHViLmNvbS9C
 						bGFja3dpbk1pbn0BAAAAIwAAAAEA
-						AAAHAAAAVFhULnJ0ZhAAAAADzWVk
+						AAAHAAAAVFhULnJ0ZhAAAAD7iVhp
 						tgEAAAAAAAAAAAAA
 						</data>
 						<key>Title</key>
 						<string>Copyright statement and contact information</string>
 					</dict>
 					<dict>
+						<key>ActionColor</key>
+						<string>Red</string>
+						<key>ActionUID</key>
+						<integer>12606237</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC6IAgAAKwAAAAEA
+						AACAAgAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyNzA5
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmbmlsXGZjaGFyc2V0MTM0
+						IFBpbmdGYW5nU0MtUmVndWxhcjtc
+						ZjFcZnN3aXNzXGZjaGFyc2V0MCBI
+						ZWx2ZXRpY2E7fQp7XGNvbG9ydGJs
+						O1xyZWQyNTVcZ3JlZW4yNTVcYmx1
+						ZTI1NTtccmVkMFxncmVlbjBcYmx1
+						ZTA7fQp7XCpcZXhwYW5kZWRjb2xv
+						cnRibDs7XGNzc3JnYlxjMFxjMFxj
+						MFxjODQ3MDZcY25hbWUgY29udHJv
+						bFRleHRDb2xvcjt9ClxwYXJkXHR4
+						NTYwXHR4MTEyMFx0eDE2ODBcdHgy
+						MjQwXHR4MjgwMFx0eDMzNjBcdHgz
+						OTIwXHR4NDQ4MFx0eDUwNDBcdHg1
+						NjAwXHR4NjE2MFx0eDY3MjBccGFy
+						ZGlybmF0dXJhbFxwYXJ0aWdodGVu
+						ZmFjdG9yMAoKXGYwXGZzMjYgXGNm
+						MiBcJ2M3XCdlYlwnYmRcJ2FiClxm
+						MSBcJzkzL1VzZXJzL01pbi9MaWJy
+						YXJ5L01vYmlsZSBEb2N1bWVudHMv
+						aUNsb3Vkfm1kfm9ic2lkaWFuL0Rv
+						Y3VtZW50cy9aMDAwXCc5NApcZjAg
+						XCdiOFwnZmNcJ2JiXCdiYlwnY2Vc
+						J2FhXCdjNFwnZmFcJ2NhXCdiNVwn
+						YmNcJ2NhXCdiNVwnYzRcJ2IxXCdj
+						YVwnYmNcJ2M3XCdjZVwnYzRcJ2Jj
+						XCdmZVwnYmNcJ2QwXCdjMlwnYjdc
+						J2JlXCdiNlwnYTFcJ2EzfQEAAAAj
+						AAAAAQAAAAcAAABUWFQucnRmEAAA
+						ABhhRGa2AQAAAAAAAAAAAAA=
+						</data>
+						<key>Title</key>
+						<string>使用前请替换笔记文件夹的路径</string>
+					</dict>
+					<dict>
 						<key>ActionUID</key>
 						<integer>4668</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>SetVariableToText</string>
 						<key>Text</key>
@@ -73,6 +125,8 @@
 					<dict>
 						<key>ActionUID</key>
 						<integer>4669</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>KeyCode</key>
 						<integer>8</integer>
 						<key>MacroActionType</key>
@@ -111,12 +165,13 @@
 c=`pbpaste`
 
 read -r -d '' applescriptCode &lt;&lt;'EOF'
-	set r to text returned of (display dialog "请输入笔记名" default answer "")
+	set timestamp to do shell script "date +%Y%m%d%H%M"
+	set r to text returned of (display dialog "请输入笔记名" default answer timestamp &amp; " " &amp; the clipboard)
 	return r
 EOF
 r=$(osascript -e "$applescriptCode")
 
-cd "/Users/Min/Library/Mobile Documents/iCloud~md~obsidian/Documents/X000"
+cd "/Users/Min/Library/Mobile Documents/iCloud~md~obsidian/Documents/Z000"
 echo "$c" &gt;&gt; "$r.md"
 echo "$r" | tr -d "\n" | pbcopy</string>
 						<key>TimeOutAbortsMacro</key>
@@ -142,6 +197,8 @@ echo "$r" | tr -d "\n" | pbcopy</string>
 					<dict>
 						<key>ActionUID</key>
 						<integer>4671</integer>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>JustDisplay</key>
 						<false/>
 						<key>MacroActionType</key>
@@ -154,6 +211,8 @@ echo "$r" | tr -d "\n" | pbcopy</string>
 						<integer>4672</integer>
 						<key>DeviceID</key>
 						<string>SOUNDEFFECTS</string>
+						<key>IsDisclosed</key>
+						<false/>
 						<key>MacroActionType</key>
 						<string>PlaySound</string>
 						<key>Path</key>
@@ -594,7 +653,7 @@ echo "$r" | tr -d "\n" | pbcopy</string>
 				kgAA/ZH///ui///9owAAA9wAAMBs
 				</data>
 				<key>ModificationDate</key>
-				<real>731396491.43119705</real>
+				<real>797671107.80972099</real>
 				<key>Name</key>
 				<string>Refactor Note</string>
 				<key>Triggers</key>
@@ -607,7 +666,7 @@ echo "$r" | tr -d "\n" | pbcopy</string>
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>
-						<integer>6400</integer>
+						<integer>256</integer>
 					</dict>
 				</array>
 				<key>UID</key>

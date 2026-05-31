@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>534004469.21942103</real>
+		<key>CustomIconData</key>
+		<string>KMEP-KeyboardMaestro</string>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>ActionColor</key>
+						<string>Yellow</string>
+						<key>ActionUID</key>
+						<integer>12653333</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Comment</string>
+						<key>StyledText</key>
+						<data>
+						cnRmZAAAAAADAAAAAgAAAAcAAABU
+						WFQucnRmAQAAAC4vAgAAKwAAAAEA
+						AAAnAgAAe1xydGYxXGFuc2lcYW5z
+						aWNwZzEyNTJcY29jb2FydGYyODIy
+						Clxjb2NvYXRleHRzY2FsaW5nMFxj
+						b2NvYXBsYXRmb3JtMHtcZm9udHRi
+						bFxmMFxmc3dpc3NcZmNoYXJzZXQw
+						IEhlbHZldGljYTt9CntcY29sb3J0
+						Ymw7XHJlZDI1NVxncmVlbjI1NVxi
+						bHVlMjU1O1xyZWQwXGdyZWVuMFxi
+						bHVlMDt9CntcKlxleHBhbmRlZGNv
+						bG9ydGJsOztcY3NzcmdiXGMwXGMw
+						XGMwXGM4NDcwNlxjbmFtZSBjb250
+						cm9sVGV4dENvbG9yO30KXHBhcmRc
+						dHg1NjBcdHgxMTIwXHR4MTY4MFx0
+						eDIyNDBcdHgyODAwXHR4MzM2MFx0
+						eDM5MjBcdHg0NDgwXHR4NTA0MFx0
+						eDU2MDBcdHg2MTYwXHR4NjcyMFxw
+						YXJkaXJuYXR1cmFsXHBhcnRpZ2h0
+						ZW5mYWN0b3IwCgpcZjBcZnMyNiBc
+						Y2YyIENvcHlyaWdodCBcJ2E5IDIw
+						MjYgTWluamEgQWxsIHJpZ2h0cyBy
+						ZXNlcnZlZFwKTElDRU5TRTogR05V
+						IEdQTHYzXApBcnRpY2xlczogaHR0
+						cHM6Ly91dGdkLm5ldC9cCkNvbnRh
+						Y3Q6IGh0dHBzOi8vdHdpdHRlci5j
+						b20vbWluamFfcmluXApHaXRIdWI6
+						IGh0dHBzOi8vZ2l0aHViLmNvbS9C
+						bGFja3dpbk1pbn0BAAAAIwAAAAEA
+						AAAHAAAAVFhULnJ0ZhAAAAD7iVhp
+						tgEAAAAAAAAAAAAA
+						</data>
+						<key>Title</key>
+						<string>Copyright statement and contact information</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12653345</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>KeyCode</key>
+						<integer>8</integer>
+						<key>MacroActionType</key>
+						<string>SimulateKeystroke</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+						<key>ReleaseAll</key>
+						<false/>
+						<key>TargetApplication</key>
+						<dict/>
+						<key>TargetingType</key>
+						<string>Front</string>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12653334</integer>
+						<key>DisplayKind</key>
+						<string>Clipboard</string>
+						<key>HonourFailureSettings</key>
+						<true/>
+						<key>IncludeStdErr</key>
+						<false/>
+						<key>IncludedVariables</key>
+						<array>
+							<string>9999</string>
+						</array>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>set oldTIDs to AppleScript's text item delimitersset AppleScript's text item delimiters to {" ", return, linefeed, tab}set rawList to text items of (the clipboard as text)set AppleScript's text item delimiters to oldTIDsset resultList to {}repeat with itemText in rawList	if itemText is not "" then set end of resultList to (itemText as text)end repeattell application "System Events"	set activeApp to name of first application process whose frontmost is true	activate	set f to (choose from list resultList with multiple selections allowed)end tellset oldTIDs to AppleScript's text item delimitersset AppleScript's text item delimiters to " "set selectedText to f as textset AppleScript's text item delimiters to oldTIDsselectedText</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>TrimResultsNew</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12653335</integer>
+						<key>MacroActionType</key>
+						<string>Notification</string>
+						<key>SoundName</key>
+						<string></string>
+						<key>Subtitle</key>
+						<string></string>
+						<key>Text</key>
+						<string>copied: %SystemClipboard%</string>
+						<key>Title</key>
+						<string>%ExecutingMacro%</string>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>801886498.03413999</real>
+				<key>CustomIconData</key>
+				<string>KMEP-FavoriteItems</string>
+				<key>ModificationDate</key>
+				<real>801890798.59269404</real>
+				<key>Name</key>
+				<string>Text Big Bang</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>36</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>6400</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>2F26359A-4B94-4C96-894B-7D816BD0942A</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Global Macro Group</string>
+		<key>ToggleMacroUID</key>
+		<string>759D3B27-673A-457E-9F53-CCAC9A3EA6E8</string>
+		<key>UID</key>
+		<string>AC334449-123A-4293-A066-067308C13C99</string>
+	</dict>
+</array>
+</plist>

@@ -99,11 +99,57 @@ end tellset the_string to ""repeat with this_line in fileNames	set the_strin
 						<key>UseText</key>
 						<true/>
 					</dict>
+					<dict>
+						<key>ActionUID</key>
+						<integer>12652943</integer>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>Notification</string>
+						<key>SoundName</key>
+						<string></string>
+						<key>Subtitle</key>
+						<string></string>
+						<key>Text</key>
+						<string>copied: %SystemClipboard%</string>
+						<key>Title</key>
+						<string>%ExecutingMacro%</string>
+					</dict>
+					<dict>
+						<key>Action</key>
+						<string>SelectWindow</string>
+						<key>ActionUID</key>
+						<integer>12653735</integer>
+						<key>HeightExpression</key>
+						<string>300</string>
+						<key>HorizontalExpression</key>
+						<string>125</string>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ManipulateWindow</string>
+						<key>TargetApplication</key>
+						<dict/>
+						<key>Targeting</key>
+						<string>FrontWindow</string>
+						<key>TargetingType</key>
+						<string>Front</string>
+						<key>VerticalExpression</key>
+						<string>125</string>
+						<key>WidthExpression</key>
+						<string>300</string>
+						<key>WindowIndexExpression</key>
+						<string>2</string>
+						<key>WindowName</key>
+						<string></string>
+					</dict>
 				</array>
 				<key>CreationDate</key>
 				<real>717743011.62186098</real>
+				<key>CustomIconData</key>
+				<string>KMEP-FavoriteItems</string>
 				<key>ModificationDate</key>
-				<real>732260990.04826701</real>
+				<real>801972856.13907599</real>
 				<key>Name</key>
 				<string>Filename Big Bang</string>
 				<key>Triggers</key>
@@ -112,7 +158,7 @@ end tellset the_string to ""repeat with this_line in fileNames	set the_strin
 						<key>FireType</key>
 						<string>Pressed</string>
 						<key>KeyCode</key>
-						<integer>11</integer>
+						<integer>36</integer>
 						<key>MacroTriggerType</key>
 						<string>HotKey</string>
 						<key>Modifiers</key>

@@ -89,7 +89,32 @@
 		set itemNameWithoutExtension to item 1 of itemNameParts
 		set end of fileNames to itemNameWithoutExtension
 	end repeat
-end tellset the_string to ""repeat with this_line in fileNames	set the_string to the_string &amp; this_line &amp; " "end repeatset the_string to items 1 thru -2 of the_string as stringset AppleScript's text item delimiters to spaceset stringList to every text item of the_stringset AppleScript's text item delimiters to ""tell application "System Events"	set activeApp to name of first application process whose frontmost is true	activate	set f to (choose from list stringList with multiple selections allowed)end tellf</string>
+end tell
+
+set the_string to ""
+repeat with this_line in fileNames
+	set the_string to the_string &amp; this_line &amp; " "
+end repeat
+set the_string to items 1 thru -2 of the_string as string
+
+set AppleScript's text item delimiters to space
+set stringList to every text item of the_string
+set AppleScript's text item delimiters to ""
+
+set uniqueList to {}
+repeat with itemA in stringList
+	if uniqueList does not contain (contents of itemA) then
+		set end of uniqueList to (contents of itemA)
+	end if
+end repeat
+
+tell application "System Events"
+	set activeApp to name of first application process whose frontmost is true
+	activate
+	set f to (choose from list uniqueList with multiple selections allowed)
+end tell
+
+f</string>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
 						<key>TrimResults</key>
@@ -149,7 +174,7 @@ end tellset the_string to ""repeat with this_line in fileNames	set the_strin
 				<key>CustomIconData</key>
 				<string>KMEP-FavoriteItems</string>
 				<key>ModificationDate</key>
-				<real>801972856.13907599</real>
+				<real>802803201.05812204</real>
 				<key>Name</key>
 				<string>Filename Big Bang</string>
 				<key>Triggers</key>
